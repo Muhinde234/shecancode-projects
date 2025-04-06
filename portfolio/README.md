@@ -1,7 +1,7 @@
 ![portfolio overview](image.png)
 A modern, responsive portfolio website showcasing my skills, services, and projects as a UI/UX designer and frontend developer.
 
-##Features##
+## Features ##
 Responsive Design: Works seamlessly on all devices
 
 ##Interactive Sections:##
