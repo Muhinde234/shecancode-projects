@@ -29,11 +29,12 @@ Responsive Design: Works seamlessly on all devices
 
 ## Installation ##
 
-   1. Clone the repository:
+   
+1. Clone the repository:
     
-  --git clone https://github.com/your-username/your-portfolio.git
+  --git clone https://github.com/Muhinde234/shecancode-projects/tree/main/portfolio
 
-   2.Open in browser:
+2.Open in browser:
  
    --cd your-portfolio
    --open index.html
