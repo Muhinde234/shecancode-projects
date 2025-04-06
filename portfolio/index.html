@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dositha - Portfolio</title>
+    <link rel="stylesheet" href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css">
+    <link rel="stylesheet" href="./styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css">       
+</head>
+<body class="bg-gray-50 pt-20">
+    <nav class="bg-white shadow-sm fixed w-full z-10 top-0">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <h1 class="text-2xl font-bold text-pink-400 hover:text-pink-600 transition-colors duration-500">
+                    Dositha
+                </h1>
+
+            
+                <div class="hidden md:flex items-center space-x-6">
+                    <a href="#home" class="text-black hover:text-pink-400 transition-colors">Home</a>
+                    <a href="#about" class="text-black hover:text-pink-400 transition-colors">About</a>
+                    <a href="#socials" class="text-black hover:text-pink-400 transition-colors">Socials</a>
+                    <a href="#services" class="text-black hover:text-pink-400 transition-colors">Services</a>
+                    <a href="#resume" class="text-black hover:text-pink-400 transition-colors">Resume</a>
+                    <a href="#contact" class="text-black border border-pink-400 px-4 py-2 rounded-full hover:bg-pink-400 duration-500 transition-colors">
+                        Contact Me
+                    </a>
+                </div>
+
+                
+                <button id="menuBtn" class="md:hidden text-gray-600">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-16 6h16"></path>
+                    </svg>
+                </button>
+            </div>
+
+        
+            <div id="mobileMenu" class="mobile-menu md:hidden">
+                <div class="px-2 pt-2 pb-3 space-y-1">
+                    <a href="#home" class="block px-3 py-2 text-gray-600 hover:text-pink-400">Home</a>
+                    <a href="#about" class="block px-3 py-2 text-gray-600 hover:text-pink-400">About</a>
+                    <a href="#socials" class="block px-3 py-2 text-gray-600 hover:text-pink-400">Socials</a>
+                    <a href="#services" class="block px-3 py-2 text-gray-600 hover:text-pink-400">Services</a>
+                    <a href="#resume" class="block px-3 py-2 text-gray-600 hover:text-pink-400">Resume</a>
+                    <a href="#contact" class="block px-3 py-2 text-pink-400 hover:text-pink-500">Contact</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    
+    <section id="home" class="section-spacing py-20 px-4">
+        <div class="max-w-4xl mx-auto text-center border border-pink-400 rounded-lg shadow-lg p-8 bg-white">
+            <h1 class="text-3xl font-bold">I'm <span class="text-pink-400">Dositha</span></h1>
+            <p class="mb-4">software engineer</p>
+            <p class="text-gray-600 py-9">
+                I am a passionate UI/UX designer and frontend developer. I create responsive and user-friendly apps 
+                that provide smooth experiences for customers. I focus on designing simple and easy to use interfaces 
+                while writing clean and effective code.
+            </p>
+            <button class="border border-pink-400 text-black px-6 py-2 hover:bg-pink-400  duration-500 rounded-full mt-6">
+                Hire me
+            </button>
+        </div>
+    </section>
+
+    <section id="about" class="section-spacing py-20 px-4">
+        <div class="max-w-4xl mx-auto text-center">
+            <h1 class="text-3xl font-bold">About Me</h1>
+            <p class="mb-4">Get to know me</p>
+    
+            <p class="text-gray-600 text-lg mb-4">
+                Hi there! I’m a passionate UI/UX designer and frontend developer with a strong focus on creating responsive, accessible, and user-friendly applications. I enjoy crafting clean interfaces and turning creative ideas into fully functional products that solve real-world problems.
+            </p>
+            <p class="text-gray-600 text-lg mb-4">
+                Design isn’t just about making things look good it’s about how they work. I love digging into user behavior, simplifying complex flows, and building designs that feel intuitive. Whether it's wireframing in Figma or prototyping new ideas, I aim to design with empathy and purpose.
+            </p>
+            <p class="text-gray-600 text-lg mb-4">
+                As a frontend developer, I work mostly with technologies like HTML, CSS, JavaScript, React, and Tailwind CSS. I pay close attention to detail and enjoy the process of transforming designs into interactive, real-life interfaces. I believe in writing clean, reusable code that’s easy to scale and maintain.
+            </p>
+             
+            <a  id="resume" href="https://drive.google.com/file/d/1Kz538kBZFysGMtGJnxxbPnjUOMZpZT69/view?usp=sharing" class="border border-pink-400 text-black px-6 py-2 hover:bg-pink-400 duration-500 rounded-full">
+                Download Resume
+            </a>
+          
+        </div>
+    </section>
+
+    <section id="services" class="section-spacing py-20 px-4">
+        <div class="max-w-6xl mx-auto text-center">
+            <h2 class="text-3xl font-bold">What I Do</h2>
+            <p class="mb-4">My Services</p>
+        
+            <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+                <div class="rounded-xl p-6 shadow-md hover:shadow-lg transition border border-pink-400">
+                    <div class="mb-4 text-2xl"><i class="ri-user-voice-line"></i></div>
+                    <h3 class="text-xl font-semibold mb-2">UI/UX Design</h3>
+                    <p class="text-gray-600 text-sm">I design clean and user-friendly interfaces focused on usability, accessibility, and great user experiences across web and mobile platforms.</p>
+                </div>
+            
+                <div class="rounded-xl p-6 shadow-md hover:shadow-lg transition border border-pink-400">
+                    <div class="mb-4 text-2xl"><i class="ri-code-s-slash-line"></i></div>
+                    <h3 class="text-xl font-semibold mb-2">Frontend Development</h3>
+                    <p class="text-gray-600 text-sm">I turn designs into interactive websites using HTML, CSS, JavaScript, React, and Tailwind CSS with a focus on performance and maintainability.</p>
+                </div>
+            
+                <div class="rounded-xl p-6 shadow-md hover:shadow-lg transition border border-pink-400">
+                    <div class="mb-4 text-2xl"><i class="ri-smartphone-line"></i></div>
+                    <h3 class="text-xl font-semibold mb-2">Responsive Web Design</h3>
+                    <p class="text-gray-600 text-sm">I ensure websites look and work beautifully on all devices by building responsive layouts that adapt seamlessly from desktops to mobile.</p>
+                </div>        
+
+                <div class="col-span-1 lg:col-span-2 rounded-xl p-6 shadow-md hover:shadow-lg transition border border-pink-400">
+                    <div class="mb-4 text-2xl"><i class="ri-centos-line"></i></div>
+                    <h3 class="text-xl font-semibold mb-2">Design Systems</h3>
+                    <p class="text-gray-600 text-sm">
+                      I create reusable design components and maintain scalable design systems for consistent UI across entire platforms and teams.
+                    </p>
+                </div>
+                
+              
+                <div class="rounded-xl p-6 shadow-md hover:shadow-lg transition border border-pink-400">
+                    <div class="mb-4 text-2xl"><i class="ri-wheelchair-fill"></i></div>
+                    <h3 class="text-xl font-semibold mb-2">Accessibility</h3>
+                    <p class="text-gray-600 text-sm">
+                        I design and code with accessibility in mind to ensure all users, regardless of ability, can use and enjoy digital products.
+                    </p>
+                </div>
+                  
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="section-spacing py-10 px-2 max-w-3xl mx-auto">
+        <div class="text-center">
+            <h2 class="text-3xl font-bold">Get In Touch</h2>
+            <p class="mb-4">Lets work together</p>
+        </div>
+    
+        <form class="space-y-6">
+            <div class="border border-pink-400 rounded-xl p-4">
+                <label class="block text-sm font-semibold mb-2">Name</label>
+                <input type="text" 
+                    class="w-full py-2 px-3 bg-transparent focus:outline-none" 
+                    placeholder="full name">
+            </div>
+    
+            <div class="border border-pink-400 rounded-xl p-4">
+                <label class="block text-sm font-semibold mb-2">Email</label>
+                <input type="email" 
+                    class="w-full py-2 px-3 bg-transparent focus:outline-none" 
+                    placeholder="example@email.com">
+            </div>
+    
+            <div class="border border-pink-400 rounded-xl p-4">
+                <label class="block text-sm font-semibold mb-2">Service</label>
+                <select class="w-full  py-2 px-3 bg-transparent focus:outline-none">
+                
+                    <option>Select a service</option>
+                    <option>UI/UX Design</option>
+                    <option>Frontend Development</option>
+                    <option>Responsive Web Design</option>
+                    <option>Design Systems</option>
+                    <option>Accessibility</option>
+                </select>
+            </div>
+    
+            <div class="border border-pink-400 rounded-xl p-4">
+                <label class="block text-sm font-semibold mb-2">Message</label>
+                <textarea 
+                    class="w-full py-2 px-3 bg-transparent focus:outline-none resize-none" 
+                    rows="4"
+                    placeholder="Message"></textarea>
+            </div>
+    
+            <button type="submit" class="w-full border border-pink-400 text-black px-6 py-4 rounded-full hover:bg-pink-400 duration-500 transition-colors">
+                Get In Touch
+            </button>
+        </form>
+    </section>
+   
+
+    <footer  id="socials"class="section-spacing w-full py-20 px-4 border-t border-pink-400">
+        <div class="max-w-4xl mx-auto">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="text-center text-sm text-gray-600 mb-4 md:mb-0">
+                    © 2025 all rights reserved.
+                </div>
+                
+                <div class="flex space-x-6">
+                    <a href="https://github.com/Muhinde234" target="_blank" rel="noopener noreferrer" class="text-gray-600 hover:text-pink-400 transition-colors">
+                     <i class="ri-github-fill text-2xl"></i>
+                            </a>
+                    <a href="https://www.linkedin.com/in/igirimpuhwe-dosta-478a49283/" target="_blank" rel="noopener noreferrer" class="text-gray-600 hover:text-pink-400 transition-colors">
+                     <i class="ri-linkedin-box-fill text-2xl"></i>
+                          </a>
+
+                    <a href="https://wa.me/250780396766" target="_blank" rel="noopener noreferrer" class="text-gray-600 hover:text-pink-400 transition-colors">
+                       <i class="ri-whatsapp-fill text-2xl"></i>
+                           </a>
+
+
+                 <a href="mailto:igirimpuhwedosta@gmail.com" class="text-gray-600 hover:text-pink-400 transition-colors">
+                  <i class="ri-mail-line text-2xl"></i>
+                </a>
+
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="./script.js"></script>
+</body>
+</html>
