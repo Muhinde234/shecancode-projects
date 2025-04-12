@@ -7,14 +7,30 @@ menuBtn.addEventListener('click', () => {
     mobileMenu.style.maxHeight = isOpen ? '0' : '500px';
 });
 
-// Close menu when clicking outside
-document.addEventListener('click', (e) => {
-    if (!menuBtn.contains(e.target) && !mobileMenu.contains(e.target)) {
-        mobileMenu.style.maxHeight = '0';
+
+document.getElementById('themeToggle').addEventListener('click', function() {
+    const html = document.documentElement;
+    const isDark = html.classList.contains('dark');
+    
+    
+    html.classList.toggle('dark');
+    
+  
+    localStorage.setItem('theme', isDark ? 'light' : 'dark');
+   
+    updateThemeIcon(!isDark);
+});
+
+
+function updateThemeIcon(isDark) {
+    const sunIcon = document.querySelector('.ri-sun-line');
+    const moonIcon = document.querySelector('.ri-moon-line');
+    
+    if (isDark) {
+        sunIcon.classList.add('hidden');
+        moonIcon.classList.remove('hidden');
+    } else {
+        sunIcon.classList.remove('hidden');
+        moonIcon.classList.add('hidden');
     }
-});
-
-
-document.getElementById("themeToggle").addEventListener('click',() =>{
-    document.documentElement.classList.toggle('dark');
-});
+}
