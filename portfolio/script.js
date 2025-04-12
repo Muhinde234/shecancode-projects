@@ -1,4 +1,4 @@
-// Simple JavaScript for Mobile Menu 
+
 const menuBtn = document.getElementById('menuBtn');
 const mobileMenu = document.getElementById('mobileMenu');
 
@@ -12,4 +12,9 @@ document.addEventListener('click', (e) => {
     if (!menuBtn.contains(e.target) && !mobileMenu.contains(e.target)) {
         mobileMenu.style.maxHeight = '0';
     }
+});
+
+
+document.getElementById("themeToggle").addEventListener('click',() =>{
+    document.documentElement.classList.toggle('dark');
 });

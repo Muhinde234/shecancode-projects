@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="./styles.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css">       
 </head>
-<body class="bg-gray-50 pt-20">
+<body class="bg-gray-50  dark:bg-gray-900 pt-20 ">
     <nav class="bg-white shadow-sm fixed w-full z-10 top-0">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-16">
@@ -20,12 +20,17 @@
                 <div class="hidden md:flex items-center space-x-6">
                     <a href="#home" class="text-black hover:text-pink-400 transition-colors">Home</a>
                     <a href="#about" class="text-black hover:text-pink-400 transition-colors">About</a>
-                    <a href="#socials" class="text-black hover:text-pink-400 transition-colors">Socials</a>
+                    <a href="#projects" class="text-black hover:text-pink-400 transition-colors">Projects</a>
                     <a href="#services" class="text-black hover:text-pink-400 transition-colors">Services</a>
                     <a href="#resume" class="text-black hover:text-pink-400 transition-colors">Resume</a>
                     <a href="#contact" class="text-black border border-pink-400 px-4 py-2 rounded-full hover:bg-pink-400 duration-500 transition-colors">
                         Contact Me
                     </a>
+                  
+                    <button id="themeToggle" class="p-2 rounded-full  border border-none">
+                        <i class="ri-sun-line dark:hidden"></i>
+                        <i class="ri-moon-line hidden dark:block"></i>
+                    </button>  
                 </div>
 
                 
@@ -41,7 +46,7 @@
                 <div class="px-2 pt-2 pb-3 space-y-1">
                     <a href="#home" class="block px-3 py-2 text-gray-600 hover:text-pink-400">Home</a>
                     <a href="#about" class="block px-3 py-2 text-gray-600 hover:text-pink-400">About</a>
-                    <a href="#socials" class="block px-3 py-2 text-gray-600 hover:text-pink-400">Socials</a>
+                    <a href="#projects" class="block px-3 py-2 text-gray-600 hover:text-pink-400">Projects</a>
                     <a href="#services" class="block px-3 py-2 text-gray-600 hover:text-pink-400">Services</a>
                     <a href="#resume" class="block px-3 py-2 text-gray-600 hover:text-pink-400">Resume</a>
                     <a href="#contact" class="block px-3 py-2 text-pink-400 hover:text-pink-500">Contact</a>
@@ -49,9 +54,11 @@
             </div>
         </div>
     </nav>
+    
+    <main>
 
     
-    <section id="home" class="section-spacing py-20 px-4">
+    <section id="home" class=" py-20 px-4">
         <div class="max-w-4xl mx-auto text-center border border-pink-400 rounded-lg shadow-lg p-8 bg-white">
             <h1 class="text-3xl font-bold">I'm <span class="text-pink-400">Dositha</span></h1>
             <p class="mb-4">software engineer</p>
@@ -60,13 +67,13 @@
                 that provide smooth experiences for customers. I focus on designing simple and easy to use interfaces 
                 while writing clean and effective code.
             </p>
-            <button class="border border-pink-400 text-black px-6 py-2 hover:bg-pink-400  duration-500 rounded-full mt-6">
+            <button class="border border-pink-400 text-black px-6 py-2 hover:bg-pink-400  duration-500 rounded-full mt-6 animate-bounce">
                 Hire me
             </button>
         </div>
     </section>
 
-    <section id="about" class="section-spacing py-20 px-4">
+    <section id="about" class="py-20 px-4">
         <div class="max-w-4xl mx-auto text-center">
             <h1 class="text-3xl font-bold">About Me</h1>
             <p class="mb-4">Get to know me</p>
@@ -88,7 +95,7 @@
         </div>
     </section>
 
-    <section id="services" class="section-spacing py-20 px-4">
+    <section id="services" class=" py-20 px-4">
         <div class="max-w-6xl mx-auto text-center">
             <h2 class="text-3xl font-bold">What I Do</h2>
             <p class="mb-4">My Services</p>
@@ -133,10 +140,57 @@
         </div>
     </section>
 
-    <section id="contact" class="section-spacing py-10 px-2 max-w-3xl mx-auto">
+    <section id="projects" class="  py-20 px-4">
+        <div class="max-w-6xl mx-auto px-4 text-center">
+          <h2 class="text-3xl font-bold mb-2">My Work</h2>
+          <p>On Going</p>
+      
+          <!-- Project Buttons -->
+          <div class="flex flex-wrap justify-center items-center gap-6 mt-6 ">
+            <div class="border border-pink-300  rounded-3xl shadow-lg px-6 py-2 hover:bg-pink-500 transition duration-300">
+              <a href="#" class="text-black">wK-beauty</a>
+            </div>
+            <div class="border border-pink-300  rounded-3xl shadow-lg px-6 py-2 hover:bg-pink-500 transition duration-300">
+              <a href="#" class="text-black ">Young learners</a>
+            </div>
+            <div class=" border border-pink-300 rounded-3xl shadow-lg px-6 py-2 hover:bg-pink-500 transition duration-300">
+              <a href="#" class="text-black ">VeloTick</a>
+            </div>
+            <div class="border border-pink-300  rounded-3xl shadow-lg px-6 py-2 hover:bg-pink-500 transition duration-300">
+              <a href="#" class="text-black ">Health Management App</a>
+            </div>
+          </div>
+      
+          
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-12">
+            <figure class="shadow-xl rounded-xl border border-pink-300 overflow-hidden">
+              <img src="./assets/beauty.jpg" alt="Beauty Platform" class="w-full h-52 object-cover">
+              <figcaption class="p-4   text-black ">Platform for beauty</figcaption>
+            </figure>
+      
+            <figure class="shadow-xl rounded-xl border border-pink-300  overflow-hidden">
+              <img src="./assets/kid.avif" alt="Young Learners" class="w-full h-52 object-cover">
+              <figcaption class="p-4  text-black ">Young learners platform</figcaption>
+            </figure>
+      
+            <figure class="shadow-xl rounded-xl border border-pink-300 overflow-hidden">
+              <img src="./assets/bus.jpeg" alt="Online Booking" class="w-full h-52 object-cover">
+              <figcaption class="p-4  text-black ">Online booking ticket</figcaption>
+            </figure>
+      
+            <figure class="shadow-xl rounded-xl border border-pink-300 overflow-hidden">
+              <img src="./assets/dochome.png" alt="Health Management" class="w-full h-52 object-cover">
+             <figcaption class="p-4  text-black ">Health management system </figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+      
+
+    <section id="contact" class="py-20 px-4 max-w-3xl mx-auto ">
         <div class="text-center">
             <h2 class="text-3xl font-bold">Get In Touch</h2>
-            <p class="mb-4">Lets work together</p>
+            <p class="mb-4">Lets work Together</p>
         </div>
     
         <form class="space-y-6">
@@ -180,35 +234,45 @@
             </button>
         </form>
     </section>
+    </main>
    
 
-    <footer  id="socials"class="section-spacing w-full py-20 px-4 border-t border-pink-400">
+    <footer >
+        <article class="w-full py-12 px-4 border-t border-pink-400">
+
         <div class="max-w-4xl mx-auto">
             <div class="flex flex-col md:flex-row justify-between items-center">
                 <div class="text-center text-sm text-gray-600  md:mb-0">
-                    © 2025 all rights reserved.
+                    Published on <time datetime="2025-04-12">April 12, 2025</time>
                 </div>
-                
-                <div class="flex space-x-6">
+                <address>
+                    <p class="text-gray-700">web developer based in Rwanda</p>
+                    <p class="text-gray-700">stay in touch</p>
+                <div class="flex  flex-col gap-1">
                     <a href="https://github.com/Muhinde234" target="_blank" rel="noopener noreferrer" class="text-gray-600 hover:text-pink-400 transition-colors">
                      <i class="ri-github-fill text-2xl"></i>
-                            </a>
+                       Github     </a>
                     <a href="https://www.linkedin.com/in/igirimpuhwe-dosta-478a49283/" target="_blank" rel="noopener noreferrer" class="text-gray-600 hover:text-pink-400 transition-colors">
                      <i class="ri-linkedin-box-fill text-2xl"></i>
-                          </a>
+                        LinkedIn  </a>
 
                     <a href="https://wa.me/250780396766" target="_blank" rel="noopener noreferrer" class="text-gray-600 hover:text-pink-400 transition-colors">
                        <i class="ri-whatsapp-fill text-2xl"></i>
-                           </a>
+                         Whatsapp  </a>
 
 
-                 <a href="mailto:igirimpuhwedosta@gmail.com"  target="_blank"  rel="noopener noreferrer"  class="text-gray-600 hover:text-pink-400 transition-colors">
-                  <i class="ri-mail-line text-2xl"></i>
-                </a>
+                     <a href="mailto:igirimpuhwedosta@gmail.com"  target="_blank"  rel="noopener noreferrer"  class="text-gray-600 hover:text-pink-400 transition-colors">
+                        <i class="ri-mail-line text-2xl"></i>
+                        Gmail    </a>
 
                 </div>
+             
+
+                </address>
+            
             </div>
         </div>
+    </article>
     </footer>
 
     <script src="./script.js"></script>

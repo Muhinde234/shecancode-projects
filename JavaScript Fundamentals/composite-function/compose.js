@@ -1,5 +1,5 @@
 // a. Function composition utility
-const compose = (...fns) => (x) => fns.reduceRight((acc, fn) => fn(acc), x);
+const compose = (...fns) => (x) => fns.reduce((acc, fn) => fn(acc), x);
 
 // Example 1: Reverse and capitalize a string
 const reverse = (str) => str.split('').reverse().join('');
