@@ -3,20 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dositha - Portfolio</title>
+    <title>Dositha -Portfolio</title>
     <link rel="stylesheet" href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css">
     <link rel="stylesheet" href="./styles.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css">       
 </head>
-<body class="bg-gray-50  dark:bg-gray-900 pt-20 ">
+<body class="bg-gray-50 dark:bg-gray-900 pt-20">
     <nav class="bg-white shadow-sm fixed w-full z-10 top-0">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-16">
-                <h1 class="text-2xl font-bold text-pink-400 hover:text-pink-600 transition-colors duration-500">
+                <h1 class="text-2xl font-bold text-pink-400 hover:text-pink-600 transition-colors duration-500 animate-pulse">
                     Dositha
                 </h1>
 
-            
                 <div class="hidden md:flex items-center space-x-6">
                     <a href="#home" class="text-black hover:text-pink-400 transition-colors">Home</a>
                     <a href="#about" class="text-black hover:text-pink-400 transition-colors">About</a>
@@ -27,13 +26,12 @@
                         Contact Me
                     </a>
                   
-                    <button id="themeToggle" class="p-2 rounded-full  border border-none">
+                    <button id="themeToggle" class="p-2 rounded-full border border-none">
                         <i class="ri-sun-line dark:hidden"></i>
                         <i class="ri-moon-line hidden dark:block"></i>
                     </button>  
                 </div>
 
-                
                 <button id="menuBtn" class="md:hidden text-gray-600">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-16 6h16"></path>
@@ -41,7 +39,6 @@
                 </button>
             </div>
 
-        
             <div id="mobileMenu" class="mobile-menu md:hidden">
                 <div class="px-2 pt-2 pb-3 space-y-1">
                     <a href="#home" class="block px-3 py-2 text-gray-600 hover:text-pink-400">Home</a>
@@ -56,225 +53,286 @@
     </nav>
     
     <main>
+        <section id="home" class="py-20 px-4">
+            <div class="max-w-4xl mx-auto text-center border border-pink-400 rounded-lg shadow-lg p-8 bg-white">
+                <h1 class="text-3xl font-bold">I'm <span class="text-pink-400">Dositha</span></h1>
+                <p class="mb-4">software engineer</p>
+                <p class="text-gray-600 py-9">
+                    I am a passionate UI/UX designer and frontend developer. I create responsive and user-friendly apps 
+                    that provide smooth experiences for customers. I focus on designing simple and easy to use interfaces 
+                    while writing clean and effective code.
+                </p>
+                <button class="border border-pink-400 text-black px-6 py-2 hover:bg-pink-400 duration-500 rounded-full mt-6 animate-bounce">
+                    Hire me
+                </button>
+            </div>
+        </section>
 
-    
-    <section id="home" class=" py-20 px-4">
-        <div class="max-w-4xl mx-auto text-center border border-pink-400 rounded-lg shadow-lg p-8 bg-white">
-            <h1 class="text-3xl font-bold">I'm <span class="text-pink-400">Dositha</span></h1>
-            <p class="mb-4">software engineer</p>
-            <p class="text-gray-600 py-9">
-                I am a passionate UI/UX designer and frontend developer. I create responsive and user-friendly apps 
-                that provide smooth experiences for customers. I focus on designing simple and easy to use interfaces 
-                while writing clean and effective code.
-            </p>
-            <button class="border border-pink-400 text-black px-6 py-2 hover:bg-pink-400  duration-500 rounded-full mt-6 animate-bounce">
-                Hire me
-            </button>
-        </div>
-    </section>
-
-    <section id="about" class="py-20 px-4">
-        <div class="max-w-4xl mx-auto text-center">
-            <h1 class="text-3xl font-bold">About Me</h1>
-            <p class="mb-4">Get to know me</p>
-    
-            <p class="text-gray-600 text-lg mb-4">
-                Hi there! I’m a passionate UI/UX designer and frontend developer with a strong focus on creating responsive, accessible, and user-friendly applications. I enjoy crafting clean interfaces and turning creative ideas into fully functional products that solve real-world problems.
-            </p>
-            <p class="text-gray-600 text-lg mb-4">
-                Design isn’t just about making things look good it’s about how they work. I love digging into user behavior, simplifying complex flows, and building designs that feel intuitive. Whether it's wireframing in Figma or prototyping new ideas, I aim to design with empathy and purpose.
-            </p>
-            <p class="text-gray-600 text-lg mb-4">
-                As a frontend developer, I work mostly with technologies like HTML, CSS, JavaScript, React, and Tailwind CSS. I pay close attention to detail and enjoy the process of transforming designs into interactive, real-life interfaces. I believe in writing clean, reusable code that’s easy to scale and maintain.
-            </p>
-             
-            <a  id="resume" href="https://drive.google.com/file/d/1Kz538kBZFysGMtGJnxxbPnjUOMZpZT69/view?usp=sharing" class="border border-pink-400 text-black px-6 py-2 hover:bg-pink-400 duration-500 rounded-full animate-pulse">
-                Download Resume
-            </a>
-          
-        </div>
-    </section>
-
-    <section id="services" class=" py-20 px-4">
-        <div class="max-w-6xl mx-auto text-center">
-            <h2 class="text-3xl font-bold">What I Do</h2>
-            <p class="mb-4">My Services</p>
+        <section id="about" class="py-20 px-4">
+            <div class="max-w-4xl mx-auto text-center">
+                <h1 class="text-3xl font-bold">About Me</h1>
+                <p class="mb-4">Get to know me</p>
         
-            <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-                <div class="rounded-xl p-6 shadow-md hover:shadow-lg transition border border-pink-400">
-                    <div class="mb-4 text-2xl"><i class="ri-user-voice-line"></i></div>
-                    <h3 class="text-xl font-semibold mb-2">UI/UX Design</h3>
-                    <p class="text-gray-600 text-sm">I design clean and user-friendly interfaces focused on usability, accessibility, and great user experiences across web and mobile platforms.</p>
-                </div>
-            
-                <div class="rounded-xl p-6 shadow-md hover:shadow-lg transition border border-pink-400">
-                    <div class="mb-4 text-2xl"><i class="ri-code-s-slash-line"></i></div>
-                    <h3 class="text-xl font-semibold mb-2">Frontend Development</h3>
-                    <p class="text-gray-600 text-sm">I turn designs into interactive websites using HTML, CSS, JavaScript, React, and Tailwind CSS with a focus on performance and maintainability.</p>
-                </div>
-            
-                <div class="rounded-xl p-6 shadow-md hover:shadow-lg transition border border-pink-400">
-                    <div class="mb-4 text-2xl"><i class="ri-smartphone-line"></i></div>
-                    <h3 class="text-xl font-semibold mb-2">Responsive Web Design</h3>
-                    <p class="text-gray-600 text-sm">I ensure websites look and work beautifully on all devices by building responsive layouts that adapt seamlessly from desktops to mobile.</p>
-                </div>        
-
-                <div class="col-span-1 lg:col-span-2 rounded-xl p-6 shadow-md hover:shadow-lg transition border border-pink-400">
-                    <div class="mb-4 text-2xl"><i class="ri-centos-line"></i></div>
-                    <h3 class="text-xl font-semibold mb-2">Design Systems</h3>
-                    <p class="text-gray-600 text-sm">
-                      I create reusable design components and maintain scalable design systems for consistent UI across entire platforms and teams.
-                    </p>
+                <p class="text-gray-600 text-lg mb-4">
+                    Hi there! I'm a passionate UI/UX designer and frontend developer with a strong focus on creating responsive, accessible, and user-friendly applications. I enjoy crafting clean interfaces and turning creative ideas into fully functional products that solve real-world problems.
+                </p>
+                <p class="text-gray-600 text-lg mb-4">
+                    Design isn't just about making things look good it's about how they work. I love digging into user behavior, simplifying complex flows, and building designs that feel intuitive. Whether it's wireframing in Figma or prototyping new ideas, I aim to design with empathy and purpose.
+                </p>
+                <p class="text-gray-600 text-lg mb-4">
+                    As a frontend developer, I work mostly with technologies like HTML, CSS, JavaScript, React, and Tailwind CSS. I pay close attention to detail and enjoy the process of transforming designs into interactive, real-life interfaces. I believe in writing clean, reusable code that's easy to scale and maintain.
+                </p>
+                
+             
+                <div id="moreInfo" class="hidden transition-all duration-500 ease-in-out">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+                        <div class="border border-pink-200 rounded-lg p-4">
+                            <h3 class="text-xl font-semibold mb-2 text-pink-400">Hobbies</h3>
+                            <ul class="text-gray-600 text-left">
+                                <li>• Reading tech blogs and design articles</li>
+                                <li>• Participating in technology event</li>
+                                <li>• Listening to musics</li>
+                                <li>• Playing football</li>
+                            </ul>
+                        </div>
+                        <div class="border border-pink-200 rounded-lg p-4">
+                            <h3 class="text-xl font-semibold mb-2 text-pink-400">Skills</h3>
+                            <ul class="text-gray-600 text-left">
+                                <li>• UI/UX Design (Figma, Adobe XD)</li>
+                                <li>• Frontend Development (HTML, CSS, JS, React)</li>
+                                <li>• Responsive Design</li>
+                                <li>• Backend Development(Java,python)</li>
+                                
+                            </ul>
+                        </div>
+                    </div>
                 </div>
                 
-              
-                <div class="rounded-xl p-6 shadow-md hover:shadow-lg transition border border-pink-400">
-                    <div class="mb-4 text-2xl"><i class="ri-wheelchair-fill"></i></div>
-                    <h3 class="text-xl font-semibold mb-2">Accessibility</h3>
-                    <p class="text-gray-600 text-sm">
-                        I design and code with accessibility in mind to ensure all users, regardless of ability, can use and enjoy digital products.
-                    </p>
+                <div class="mt-8 space-x-4">
+                    <a id="resume" href="https://drive.google.com/file/d/1Kz538kBZFysGMtGJnxxbPnjUOMZpZT69/view?usp=sharing" class="border border-pink-400 text-black px-6 py-2 hover:bg-pink-400 duration-500 rounded-full">
+                        Download Resume
+                    </a>
+                    <button id="toggleMoreInfo" class="border border-pink-400 text-black px-6 py-2 hover:bg-pink-400 duration-500 rounded-full">
+                        More About Me
+                    </button>
                 </div>
-                  
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section id="projects" class="  py-20 px-4">
-        <div class="max-w-6xl mx-auto px-4 text-center">
-          <h2 class="text-3xl font-bold mb-2">My Work</h2>
-          <p>On Going</p>
-      
-          <!-- Project Buttons -->
-          <div class="flex flex-wrap justify-center items-center gap-6 mt-6 ">
-            <div class="border border-pink-300  rounded-3xl shadow-lg px-6 py-2 hover:bg-pink-500 transition duration-300">
-              <a href="#" class="text-black">wK-beauty</a>
+        
+        <section class="py-12 px-4 bg-pink-50 dark:bg-gray-800">
+            <div class="max-w-4xl mx-auto text-center">
+                <blockquote class="text-xl italic text-gray-700 dark:text-gray-300">
+                    <span id="motivationalQuote" class="before:content-['"'] after:content-['"']"></span>
+                </blockquote>
+                <p id="quoteAuthor" class="mt-4 text-pink-500 dark:text-pink-400 font-medium"></p>
             </div>
-            <div class="border border-pink-300  rounded-3xl shadow-lg px-6 py-2 hover:bg-pink-500 transition duration-300">
-              <a href="#" class="text-black ">Young learners</a>
+        </section>
+
+        <section id="services" class="py-20 px-4">
+            <div class="max-w-6xl mx-auto text-center">
+                <h2 class="text-3xl font-bold">What I Do</h2>
+                <p class="mb-4">My Services</p>
+            
+                <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+                    <div class="rounded-xl p-6 shadow-md hover:shadow-lg transition border border-pink-400">
+                        <div class="mb-4 text-2xl"><i class="ri-user-voice-line"></i></div>
+                        <h3 class="text-xl font-semibold mb-2">UI/UX Design</h3>
+                        <p class="text-gray-600 text-sm">I design clean and user-friendly interfaces focused on usability, accessibility, and great user experiences across web and mobile platforms.</p>
+                    </div>
+                
+                    <div class="rounded-xl p-6 shadow-md hover:shadow-lg transition border border-pink-400">
+                        <div class="mb-4 text-2xl"><i class="ri-code-s-slash-line"></i></div>
+                        <h3 class="text-xl font-semibold mb-2">Frontend Development</h3>
+                        <p class="text-gray-600 text-sm">I turn designs into interactive websites using HTML, CSS, JavaScript, React, and Tailwind CSS with a focus on performance and maintainability.</p>
+                    </div>
+                
+                    <div class="rounded-xl p-6 shadow-md hover:shadow-lg transition border border-pink-400">
+                        <div class="mb-4 text-2xl"><i class="ri-smartphone-line"></i></div>
+                        <h3 class="text-xl font-semibold mb-2">Responsive Web Design</h3>
+                        <p class="text-gray-600 text-sm">I ensure websites look and work beautifully on all devices by building responsive layouts that adapt seamlessly from desktops to mobile.</p>
+                    </div>        
+
+                    <div class="col-span-1 lg:col-span-2 rounded-xl p-6 shadow-md hover:shadow-lg transition border border-pink-400">
+                        <div class="mb-4 text-2xl"><i class="ri-centos-line"></i></div>
+                        <h3 class="text-xl font-semibold mb-2">Design Systems</h3>
+                        <p class="text-gray-600 text-sm">
+                          I create reusable design components and maintain scalable design systems for consistent UI across entire platforms and teams.
+                        </p>
+                    </div>
+                    
+                    <div class="rounded-xl p-6 shadow-md hover:shadow-lg transition border border-pink-400">
+                        <div class="mb-4 text-2xl"><i class="ri-wheelchair-fill"></i></div>
+                        <h3 class="text-xl font-semibold mb-2">Accessibility</h3>
+                        <p class="text-gray-600 text-sm">
+                            I design and code with accessibility in mind to ensure all users, regardless of ability, can use and enjoy digital products.
+                        </p>
+                    </div>
+                </div>
             </div>
-            <div class=" border border-pink-300 rounded-3xl shadow-lg px-6 py-2 hover:bg-pink-500 transition duration-300">
-              <a href="#" class="text-black ">VeloTick</a>
-            </div>
-            <div class="border border-pink-300  rounded-3xl shadow-lg px-6 py-2 hover:bg-pink-500 transition duration-300">
-              <a href="#" class="text-black ">Health Management App</a>
-            </div>
-          </div>
-      
+        </section>
+
+        <section id="projects" class="py-20 px-4">
+            <div class="max-w-6xl mx-auto px-4 text-center">
+              <h2 class="text-3xl font-bold mb-2">My Work</h2>
+              <p>On Going</p>
           
-          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-12">
-            <figure class="shadow-xl rounded-xl border border-pink-300 overflow-hidden">
-              <img src="./assets/beauty.jpg" alt="Beauty Platform" class="w-full h-52 object-cover">
-              <figcaption class="p-4   text-black ">Platform for beauty</figcaption>
-            </figure>
-      
-            <figure class="shadow-xl rounded-xl border border-pink-300  overflow-hidden">
-              <img src="./assets/kid.avif" alt="Young Learners" class="w-full h-52 object-cover">
-              <figcaption class="p-4  text-black ">Young learners platform</figcaption>
-            </figure>
-      
-            <figure class="shadow-xl rounded-xl border border-pink-300 overflow-hidden">
-              <img src="./assets/bus.jpeg" alt="Online Booking" class="w-full h-52 object-cover">
-              <figcaption class="p-4  text-black ">Online booking ticket</figcaption>
-            </figure>
-      
-            <figure class="shadow-xl rounded-xl border border-pink-300 overflow-hidden">
-              <img src="./assets/dochome.png" alt="Health Management" class="w-full h-52 object-cover">
-             <figcaption class="p-4  text-black ">Health management system </figcaption>
-            </figure>
-          </div>
-        </div>
-      </section>
-      
+              <div class="flex flex-wrap justify-center items-center gap-6 mt-6">
+                <div class="border border-pink-300 rounded-3xl shadow-lg px-6 py-2 hover:bg-pink-500 transition duration-300">
+                  <a href="#" class="text-black">K-beauty</a>
+                </div>
+                <div class="border border-pink-300 rounded-3xl shadow-lg px-6 py-2 hover:bg-pink-500 transition duration-300">
+                  <a href="#" class="text-black">Young learners</a>
+                </div>
+                <div class="border border-pink-300 rounded-3xl shadow-lg px-6 py-2 hover:bg-pink-500 transition duration-300">
+                  <a href="#" class="text-black">VeloTick</a>
+                </div>
+                <div class="border border-pink-300 rounded-3xl shadow-lg px-6 py-2 hover:bg-pink-500 transition duration-300">
+                  <a href="#" class="text-black">Health staff manager App</a>
+                </div>
+              </div>
+          
+              <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-12">
+                <figure class="shadow-xl rounded-xl border border-pink-300 overflow-hidden">
+                  <img src="./assets/beauty.jpg" alt="Beauty Platform" class="w-full h-52 object-cover">
+                  <figcaption class="p-4 text-black">Platform for beauty</figcaption>
+                </figure>
+          
+                <figure class="shadow-xl rounded-xl border border-pink-300 overflow-hidden">
+                  <img src="./assets/kid.avif" alt="Young Learners" class="w-full h-52 object-cover">
+                  <figcaption class="p-4 text-black">Young learners platform</figcaption>
+                </figure>
+          
+                <figure class="shadow-xl rounded-xl border border-pink-300 overflow-hidden">
+                  <img src="./assets/bus.jpeg" alt="Online Booking" class="w-full h-52 object-cover">
+                  <figcaption class="p-4 text-black">Online booking ticket</figcaption>
+                </figure>
+          
+                <figure class="shadow-xl rounded-xl border border-pink-300 overflow-hidden">
+                  <img src="./assets/dochome.png" alt="Health Management" class="w-full h-52 object-cover">
+                 <figcaption class="p-4 text-black">Health staff manager App</figcaption>
+                </figure>
+              </div>
+            </div>
+        </section>
 
-    <section id="contact" class="py-20 px-4 max-w-3xl mx-auto ">
-        <div class="text-center">
-            <h2 class="text-3xl font-bold">Get In Touch</h2>
-            <p class="mb-4">Lets work Together</p>
-        </div>
-    
-        <form class="space-y-6">
-            <div class="border border-pink-400 rounded-xl p-4">
-                <label class="block text-sm font-semibold mb-2">Name</label>
-                <input type="text" 
-                    class="w-full py-2 px-3 bg-transparent focus:outline-none" 
-                    placeholder="full name">
+        <section id="contact" class="py-20 px-4 max-w-3xl mx-auto">
+            <div class="text-center">
+                <h2 class="text-3xl font-bold">Get In Touch</h2>
+                <p class="mb-4">Lets work Together</p>
             </div>
-    
-            <div class="border border-pink-400 rounded-xl p-4">
-                <label class="block text-sm font-semibold mb-2">Email</label>
-                <input type="email" 
-                    class="w-full py-2 px-3 bg-transparent focus:outline-none" 
-                    placeholder="example@email.com">
-            </div>
-    
-            <div class="border border-pink-400 rounded-xl p-4">
-                <label class="block text-sm font-semibold mb-2">Service</label>
-                <select class="w-full  py-2 px-3 bg-transparent focus:outline-none">
-                
-                    <option>Select a service</option>
-                    <option>UI/UX Design</option>
-                    <option>Frontend Development</option>
-                    <option>Responsive Web Design</option>
-                    <option>Design Systems</option>
-                    <option>Accessibility</option>
-                </select>
-            </div>
-    
-            <div class="border border-pink-400 rounded-xl p-4">
-                <label class="block text-sm font-semibold mb-2">Message</label>
-                <textarea 
-                    class="w-full py-2 px-3 bg-transparent focus:outline-none resize-none" 
-                    rows="4"
-                    placeholder="Message"></textarea>
-            </div>
-    
-            <button type="submit" class="w-full border border-pink-400 text-black px-6 py-4 rounded-full hover:bg-pink-400 duration-500 transition-colors">
-                Get In Touch
-            </button>
-        </form>
-    </section>
+        
+            <form class="space-y-6">
+                <div class="border border-pink-400 rounded-xl p-4">
+                    <label class="block text-sm font-semibold mb-2">Name</label>
+                    <input type="text" 
+                        class="w-full py-2 px-3 bg-transparent focus:outline-none" 
+                        placeholder="full name">
+                </div>
+        
+                <div class="border border-pink-400 rounded-xl p-4">
+                    <label class="block text-sm font-semibold mb-2">Email</label>
+                    <input type="email" 
+                        class="w-full py-2 px-3 bg-transparent focus:outline-none" 
+                        placeholder="example@email.com">
+                </div>
+        
+                <div class="border border-pink-400 rounded-xl p-4">
+                    <label class="block text-sm font-semibold mb-2">Service</label>
+                    <select class="w-full py-2 px-3 bg-transparent focus:outline-none">
+                        <option>Select a service</option>
+                        <option>UI/UX Design</option>
+                        <option>Frontend Development</option>
+                        <option>Responsive Web Design</option>
+                        <option>Design Systems</option>
+                        <option>Accessibility</option>
+                    </select>
+                </div>
+        
+                <div class="border border-pink-400 rounded-xl p-4">
+                    <label class="block text-sm font-semibold mb-2">Message</label>
+                    <textarea 
+                        class="w-full py-2 px-3 bg-transparent focus:outline-none resize-none" 
+                        rows="4"
+                        placeholder="Message"></textarea>
+                </div>
+        
+                <button type="submit" class="w-full border border-pink-400 text-black px-6 py-4 rounded-full hover:bg-pink-400 duration-500 transition-colors">
+                    Get In Touch
+                </button>
+            </form>
+        </section>
     </main>
    
-
-    <footer >
-        <article class="w-full py-12 px-4 border-t border-pink-400">
-
-        <div class="max-w-4xl mx-auto">
-            <div class="flex flex-col md:flex-row justify-between items-center">
-                <div class="text-center text-sm text-gray-600  md:mb-0">
-                    Published on <time datetime="2025-04-12">April 12, 2025</time>
+    <footer class="bg-white">
+        <article class="w-full py-12 px-4 border-t border-pink-400 dark:border-pink-600">
+          <div class="max-w-6xl mx-auto">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-8">
+              <div class="text-center md:text-left">
+                <p class="text-sm text-gray-600 dark:text-gray-300">
+                  © 2025 Dositha. All rights reserved.
+                </p>
+                <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">
+                  Published on <time datetime="2025-04-12">April 12, 2025</time>
+                </p>
+              </div>
+      
+              <address class="not-italic text-center md:text-right">
+                <h3 class="text-lg font-medium text-gray-700 dark:text-gray-200 mb-2">
+                  Web Developer based in Rwanda
+                </h3>
+                
+                <p class="text-gray-600 dark:text-gray-300 mb-3">
+                  Let's work together!
+                </p>
+                
+                <div class="flex justify-center md:justify-end gap-4">
+                  <a href="https://github.com/Muhinde234" 
+                     target="_blank" 
+                     rel="noopener noreferrer" 
+                     class="text-gray-600 dark:text-gray-300 hover:text-pink-400 dark:hover:text-pink-300 transition-colors p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700"
+                     aria-label="GitHub">
+                    <i class="ri-github-fill text-2xl"></i>
+                  </a>
+                  
+                  <a href="https://www.linkedin.com/in/igirimpuhwe-dosta-478a49283/" 
+                     target="_blank" 
+                     rel="noopener noreferrer" 
+                     class="text-gray-600 dark:text-gray-300 hover:text-pink-400 dark:hover:text-pink-300 transition-colors p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700"
+                     aria-label="LinkedIn">
+                    <i class="ri-linkedin-box-fill text-2xl"></i>
+                  </a>
+                  
+                  <a href="https://wa.me/250780396766" 
+                     target="_blank" 
+                     rel="noopener noreferrer" 
+                     class="text-gray-600 dark:text-gray-300 hover:text-pink-400 dark:hover:text-pink-300 transition-colors p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700"
+                     aria-label="WhatsApp">
+                    <i class="ri-whatsapp-fill text-2xl"></i>
+                  </a>
+                  
+                  <a href="mailto:igirimpuhwedosta@gmail.com"  
+                     target="_blank"  
+                     rel="noopener noreferrer"  
+                     class="text-gray-600 dark:text-gray-300 hover:text-pink-400 dark:hover:text-pink-300 transition-colors p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700"
+                     aria-label="Email">
+                    <i class="ri-mail-line text-2xl"></i>
+                  </a>
                 </div>
-                <address>
-                    <p class="text-gray-700">web developer based in Rwanda</p>
-                    <p class="text-gray-700">stay in touch</p>
-                <div class="flex  flex-col gap-1">
-                    <a href="https://github.com/Muhinde234" target="_blank" rel="noopener noreferrer" class="text-gray-600 hover:text-pink-400 transition-colors">
-                     <i class="ri-github-fill text-2xl"></i>
-                       Github     </a>
-                    <a href="https://www.linkedin.com/in/igirimpuhwe-dosta-478a49283/" target="_blank" rel="noopener noreferrer" class="text-gray-600 hover:text-pink-400 transition-colors">
-                     <i class="ri-linkedin-box-fill text-2xl"></i>
-                        LinkedIn  </a>
-
-                    <a href="https://wa.me/250780396766" target="_blank" rel="noopener noreferrer" class="text-gray-600 hover:text-pink-400 transition-colors">
-                       <i class="ri-whatsapp-fill text-2xl"></i>
-                         Whatsapp  </a>
-
-
-                     <a href="mailto:igirimpuhwedosta@gmail.com"  target="_blank"  rel="noopener noreferrer"  class="text-gray-600 hover:text-pink-400 transition-colors">
-                        <i class="ri-mail-line text-2xl"></i>
-                        Gmail    </a>
-
-                </div>
-             
-
-                </address>
-            
+              </address>
             </div>
-        </div>
-    </article>
+            
+            <div class="mt-8 text-center">
+              <a href="#home" 
+                 class="inline-flex items-center text-pink-400 hover:text-pink-600 dark:hover:text-pink-300 transition-colors"
+                 aria-label="Back to top">
+                <i class="ri-arrow-up-line text-xl mr-1"></i>
+                Back to top
+              </a>
+            </div>
+          </div>
+        </article>
     </footer>
-
     <script src="./script.js"></script>
 </body>
 </html>
