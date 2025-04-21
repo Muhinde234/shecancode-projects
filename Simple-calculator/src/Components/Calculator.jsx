@@ -7,9 +7,14 @@ const Calculator = () => {
   const [result, setResult] = useState(null);
   const [error, setError] = useState('');
 
+ useEffect(()=>{
+  alert("Hi welcome to your digital calculator")
+ },[])
+
+
 
   useEffect(() => {
-    alert("Hi user welcome")
+  
     if (result !== null) {
       console.log('Result changed:', result);
     }
