@@ -12,6 +12,7 @@ const Calculator = () => {
   }, []);
 
   useEffect(() => {
+    
     if (result !== null) {
       console.log("Result changed:", result);
     }
@@ -31,35 +32,35 @@ const Calculator = () => {
     const number2 = parseFloat(num2);
 
     if (isNaN(number1) || isNaN(number2)) {
-      setError("Please enter valid numbers");
+      setError("Please enter numbers that are valid");
       setResult(null);
       return;
     }
 
-    let calculationResult;
+    let Result;
     switch (operation) {
       case "add":
-        calculationResult = number1 + number2;
+        Result = number1 + number2;
         break;
       case "subtract":
-        calculationResult = number1 - number2;
+        Result = number1 - number2;
         break;
       case "multiply":
-        calculationResult = number1 * number2;
+        Result = number1 * number2;
         break;
       case "divide":
         if (number2 === 0) {
-          setError("Cannot divide by zero");
+          setError("Cannot be divide by zero");
           setResult(null);
           return;
         }
-        calculationResult = number1 / number2;
+        Result = number1 / number2;
         break;
       default:
-        calculationResult = null;
+        Result = null;
     }
 
-    setResult(calculationResult);
+    setResult(Result);
   };
 
   const resetCalculator = () => {
