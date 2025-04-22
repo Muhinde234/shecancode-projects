@@ -30,11 +30,7 @@ const Calculator = () => {
     const number1 = parseFloat(num1);
     const number2 = parseFloat(num2);
 
-    if (isNaN(number1) || isNaN(number2)) {
-      setError("Please enter numbers that are valid");
-      setResult(null);
-      return;
-    }
+   
 
     let Result;
     switch (operation) {
