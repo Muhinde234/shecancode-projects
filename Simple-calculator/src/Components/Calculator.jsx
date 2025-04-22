@@ -82,7 +82,7 @@ const Calculator = () => {
           <div className="space-y-2">
             <label
               htmlFor="num1"
-              className="block text-sm font-medium text-gray-700"
+              className="block text-lg font-medium text-gray-700"
             >
               First Number
             </label>
@@ -99,7 +99,7 @@ const Calculator = () => {
           <div className="space-y-2">
             <label
               htmlFor="operation"
-              className="block text-sm font-medium text-gray-700"
+              className="block text-lg font-medium text-gray-700"
             >
               Operation
             </label>
@@ -119,7 +119,7 @@ const Calculator = () => {
           <div className="space-y-2">
             <label
               htmlFor="num2"
-              className="block text-sm font-medium text-gray-700"
+              className="block text-lg font-medium text-gray-700"
             >
               Second Number
             </label>
