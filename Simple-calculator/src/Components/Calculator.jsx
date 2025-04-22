@@ -78,7 +78,6 @@ const Calculator = () => {
         </h1>
 
         <form onSubmit={handleSubmit} className="space-y-4">
-         
           <div className="space-y-2">
             <label
               htmlFor="num1"
