@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 const Calculator = () => {
   const [num1, setNum1] = useState("");
   const [num2, setNum2] = useState("");
-  const [operation, setOperation] = useState("add");
+  const [operation, setOperation] = useState("");
   const [result, setResult] = useState(null);
   const [error, setError] = useState("");
 
@@ -105,6 +105,7 @@ const Calculator = () => {
               onChange={(e) => setOperation(e.target.value)}
               className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition"
             >
+            <option value="">select operation</option>
               <option value="add">Add (+)</option>
               <option value="subtract">Subtract (−)</option>
               <option value="multiply">Multiply (×)</option>
