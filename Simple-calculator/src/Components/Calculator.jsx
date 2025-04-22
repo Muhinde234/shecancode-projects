@@ -12,7 +12,6 @@ const Calculator = () => {
   }, []);
 
   useEffect(() => {
-    
     if (result !== null) {
       console.log("Result changed:", result);
     }
@@ -75,7 +74,7 @@ const Calculator = () => {
     <div className="min-h-screen bg-gradient-to-br from-indigo-50 to-blue-100 flex items-center justify-center p-4">
       <div className="bg-white rounded-xl shadow-2xl p-6 w-full max-w-md">
         <h1 className="text-3xl font-bold text-center text-violet-500 mb-6">
-          Simple Calculator
+          Simple Calculator App
         </h1>
 
         <form onSubmit={handleSubmit} className="space-y-4">
@@ -87,6 +86,7 @@ const Calculator = () => {
               First Number
             </label>
             <input
+              name="num1"
               id="num1"
               type="number"
               value={num1}
@@ -124,6 +124,7 @@ const Calculator = () => {
               Second Number
             </label>
             <input
+              name="num2"
               id="num2"
               type="number"
               value={num2}
