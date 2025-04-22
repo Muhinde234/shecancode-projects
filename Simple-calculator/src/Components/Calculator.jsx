@@ -1,32 +1,28 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from "react";
 
 const Calculator = () => {
-  const [num1, setNum1] = useState('');
-  const [num2, setNum2] = useState('');
-  const [operation, setOperation] = useState('add');
+  const [num1, setNum1] = useState("");
+  const [num2, setNum2] = useState("");
+  const [operation, setOperation] = useState("add");
   const [result, setResult] = useState(null);
-  const [error, setError] = useState('');
-
- useEffect(()=>{
-  alert("Hi welcome to your digital calculator")
- },[])
-
-
+  const [error, setError] = useState("");
 
   useEffect(() => {
-  
+    alert("Hi welcome to your digital calculator");
+  }, []);
+
+  useEffect(() => {
     if (result !== null) {
-      console.log('Result changed:', result);
+      console.log("Result changed:", result);
     }
   }, [result]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setError('');
-    
-    
-    if (num1 === '' || num2 === '') {
-      setError('Please enter both numbers');
+    setError("");
+
+    if (num1 === "" || num2 === "") {
+      setError("Please enter both numbers");
       setResult(null);
       return;
     }
@@ -35,26 +31,25 @@ const Calculator = () => {
     const number2 = parseFloat(num2);
 
     if (isNaN(number1) || isNaN(number2)) {
-      setError('Please enter valid numbers');
+      setError("Please enter valid numbers");
       setResult(null);
       return;
     }
 
-
     let calculationResult;
     switch (operation) {
-      case 'add':
+      case "add":
         calculationResult = number1 + number2;
         break;
-      case 'subtract':
+      case "subtract":
         calculationResult = number1 - number2;
         break;
-      case 'multiply':
+      case "multiply":
         calculationResult = number1 * number2;
         break;
-      case 'divide':
+      case "divide":
         if (number2 === 0) {
-          setError('Cannot divide by zero');
+          setError("Cannot divide by zero");
           setResult(null);
           return;
         }
@@ -68,21 +63,27 @@ const Calculator = () => {
   };
 
   const resetCalculator = () => {
-    setNum1('');
-    setNum2('');
-    setOperation('add');
+    setNum1("");
+    setNum2("");
+    setOperation("add");
     setResult(null);
-    setError('');
+    setError("");
   };
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-indigo-50 to-blue-100 flex items-center justify-center p-4">
       <div className="bg-white rounded-xl shadow-2xl p-6 w-full max-w-md">
-        <h1 className="text-3xl font-bold text-center text-indigo-700 mb-6">Simple Calculator</h1>
-        
+        <h1 className="text-3xl font-bold text-center text-violet-500 mb-6">
+          Simple Calculator
+        </h1>
+
         <form onSubmit={handleSubmit} className="space-y-4">
+         
           <div className="space-y-2">
-            <label htmlFor="num1" className="block text-sm font-medium text-gray-700">
+            <label
+              htmlFor="num1"
+              className="block text-sm font-medium text-gray-700"
+            >
               First Number
             </label>
             <input
@@ -96,7 +97,10 @@ const Calculator = () => {
           </div>
 
           <div className="space-y-2">
-            <label htmlFor="operation" className="block text-sm font-medium text-gray-700">
+            <label
+              htmlFor="operation"
+              className="block text-sm font-medium text-gray-700"
+            >
               Operation
             </label>
             <select
@@ -108,12 +112,15 @@ const Calculator = () => {
               <option value="add">Add (+)</option>
               <option value="subtract">Subtract (−)</option>
               <option value="multiply">Multiply (×)</option>
-              <option value="divide">Divide (÷)</option>
+              <option value="divide">Divide (÷)</option>w
             </select>
           </div>
 
           <div className="space-y-2">
-            <label htmlFor="num2" className="block text-sm font-medium text-gray-700">
+            <label
+              htmlFor="num2"
+              className="block text-sm font-medium text-gray-700"
+            >
               Second Number
             </label>
             <input
@@ -129,7 +136,7 @@ const Calculator = () => {
           <div className="flex space-x-4 pt-2">
             <button
               type="submit"
-              className="flex-1 bg-indigo-600 hover:bg-indigo-700 text-white font-medium py-2 px-4 rounded-lg transition duration-200 transform hover:scale-105"
+              className="flex-1 bg-violet-500 hover:bg-indigo-700 text-white font-medium py-2 px-4 rounded-lg transition duration-200 transform hover:scale-105"
             >
               Calculate
             </button>
@@ -144,11 +151,21 @@ const Calculator = () => {
         </form>
 
         {(error || result !== null) && (
-          <div className={`mt-6 p-4 rounded-lg ${error ? 'bg-red-50 border border-red-200' : 'bg-green-50 border border-green-200'}`}>
+          <div
+            className={`mt-6 p-4 rounded-lg ${
+              error
+                ? "bg-red-50 border border-red-200"
+                : "bg-green-50 border border-green-200"
+            }`}
+          >
             <h2 className="text-lg font-semibold mb-1">
-              {error ? 'Error' : 'Result'}
+              {error ? "Error" : "Result"}
             </h2>
-            <p className={error ? 'text-red-600' : 'text-green-600 font-bold text-xl'}>
+            <p
+              className={
+                error ? "text-red-600" : "text-green-600 font-bold text-xl"
+              }
+            >
               {error || `Result: ${result}`}
             </p>
           </div>
