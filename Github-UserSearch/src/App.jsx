@@ -1,15 +1,17 @@
 import React  from 'react'
 
 import './App.css'
+import MainSection from './components/MainSection'
 
-import UserProfile from './components/UserProfile'
+
 
 function App() {
 
 
   return (
     <div>
-   <UserProfile/>
+    <MainSection/>
+   
     </div>
   )
 }
