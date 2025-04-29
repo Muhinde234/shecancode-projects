@@ -8,15 +8,15 @@ const UserProfile = ({ user, theme }) => {
 
   return (
     <div
-      className={`mx-auto mt-6 rounded-2xl p-8 w-full max-w-2xl ${
+      className={`mx-auto mt-6 relative rounded-2xl p-8 w-full h-[500px] md:h-full max-w-2xl ${
         theme === "dark" ? "bg-gray-800 text-white" : "bg-white text-gray-900 shadow"
       }`}
     >
-      <div className="flex flex-col  md:flex-row gap-8">
+      <div className="relative h-full w-full flex gap-8">
         <div className="flex-shrink-0">
           <img
             src={user.avatar_url}
-            alt="User profile"
+            alt2="User profile"
             className="w-24 h-24 rounded-full object-cover"
           />
         </div>
@@ -36,6 +36,7 @@ const UserProfile = ({ user, theme }) => {
             </p>
           </div>
 
+          <div className="mt-3 absolute left-0 md:relative md:mt-0">
           <p className={`mt-4 ${
             theme === "dark" ? "text-gray-300" : "text-gray-600"
           }`}>
@@ -112,6 +113,7 @@ const UserProfile = ({ user, theme }) => {
                 @{user.login}
               </a>
             </div>
+          </div>
           </div>
         </div>
       </div>

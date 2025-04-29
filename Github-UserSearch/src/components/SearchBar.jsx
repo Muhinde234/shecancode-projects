@@ -31,7 +31,7 @@ const SearchBar = ({ onSearch, theme }) => {
         value={input}
         onChange={(e) => setInput(e.target.value)}
         placeholder="Search GitHub username..."
-        className={`flex-grow p-4 focus:outline-none ${
+        className={`flex-grow p-4 focus:outline-none text-sm md:text-base ${
           theme === "dark"
             ? "bg-gray-800 text-white placeholder-gray-400"
             : "bg-white text-gray-900 placeholder-gray-500"
@@ -39,7 +39,7 @@ const SearchBar = ({ onSearch, theme }) => {
       />
       <button
         type="submit"
-        className={`mr-2 my-2 rounded-lg px-4 font-semibold ${
+        className={`mr-2 my-2 rounded-lg px-4 font-semibold text-sm md:text-base ${
           theme === "dark"
             ? "bg-blue-500 hover:bg-blue-600 text-white"
             : "bg-blue-400 hover:bg-blue-500 text-white"
