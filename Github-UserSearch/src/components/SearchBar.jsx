@@ -14,6 +14,9 @@ const SearchBar = ({ onSearch, theme }) => {
       }
       setInput("");
     }
+    else if(input===""){
+      alert("please enter user")
+    }
   };
 
   return (
