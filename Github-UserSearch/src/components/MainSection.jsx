@@ -33,6 +33,7 @@ const MainSection = () => {
 
   const toggleTheme = () => {
     setTheme((prevTheme) => (prevTheme === "dark" ? "light" : "dark"));
+    localStorage.setItem("theme",dark)
   };
 
   return (
