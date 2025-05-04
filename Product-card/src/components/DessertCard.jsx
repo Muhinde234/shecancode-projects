@@ -1,4 +1,3 @@
-import macaron from "../assets/Images/macaron.png";
 import ActionButton from "./ActionButton";
 const DessertCard = ({ id, name, category, price, image }) => {
   return (
