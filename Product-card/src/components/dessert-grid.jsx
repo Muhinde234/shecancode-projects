@@ -34,10 +34,10 @@ const Dessert = () => {
 
   const addToCart = (dessert) => {
     setCart((prev) => {
-      const existing = prev.find((item) => item.id === dessert.id);
+      const existing = prev.find((item) => item.name === dessert.name);
       if (existing) {
         return prev.map((item) =>
-          item.id === dessert.id
+          item.name === dessert.name
             ? { ...item, quantity: item.quantity + 1 }
             : item
         );
@@ -46,14 +46,14 @@ const Dessert = () => {
     });
   };
 
-  const removeFromCart = (id) => {
-    setCart((prev) => prev.filter((item) => item.id !== id));
+  const removeFromCart = (name) => {
+    setCart((prev) => prev.filter((item) => item.name !== name));
   };
 
-  const updateQuantity = (id, amount) => {
+  const updateQuantity = (name, amount) => {
     setCart((prev) =>
       prev.map((item) =>
-        item.id === id
+        item.name === name
           ? { ...item, quantity: Math.max(1, item.quantity + amount) }
           : item
       )
@@ -89,21 +89,12 @@ const Dessert = () => {
             <h2 className="text-red font-bold text-xl">
               Your Cart ({totalItems})
             </h2>
-            <button
-              onClick={() => setCart([])}
-              className="text-rose-500 hover:text-rose-700 focus:text-rose-700 text-sm border border-rose-500 py-2 px-4 rounded-full transition-colors focus:outline-none"
-            >
-              Start New Order
-            </button>
+           
           </div>
 
           {cart.length === 0 ? (
             <div className="text-center py-12">
-              <img
-                src={cart_cake}
-                className="mx-auto mb-4"
-                alt="Empty cart"
-              />
+              <img src={cart_cake} className="mx-auto mb-4" alt="Empty cart" />
               <p className="text-sm">Your added items will appear here</p>
             </div>
           ) : (
@@ -117,7 +108,7 @@ const Dessert = () => {
                     <h3 className="font-semibold">{item.name}</h3>
                     <div className="flex items-center gap-2 mt-1">
                       <button
-                        onClick={() => updateQuantity(item.id, -1)}
+                        onClick={() => updateQuantity(item.name, -1)}
                         className="px-2 py-1 rounded-md bg-gray-200 hover:bg-gray-300 focus:bg-gray-300 transition-colors"
                         disabled={item.quantity <= 1}
                       >
@@ -125,7 +116,7 @@ const Dessert = () => {
                       </button>
                       <span className="w-6 text-center">{item.quantity}</span>
                       <button
-                        onClick={() => updateQuantity(item.id, 1)}
+                        onClick={() => updateQuantity(item.name, 1)}
                         className="px-2 py-1 rounded-md bg-gray-200 hover:bg-gray-300 focus:bg-gray-300 transition-colors"
                       >
                         +
@@ -138,8 +129,8 @@ const Dessert = () => {
                       ${(item.price * item.quantity).toFixed(2)}
                     </span>
                     <button
-                      onClick={() => removeFromCart(item.id)}
-                      className="text-rose-500 hover:text-rose-700 focus:text-rose-700 ml-2 transition-colors"
+                      onClick={() => removeFromCart(item.name)}
+                      className="text-red border-2 border-red rounded-full hover:text-red focus:text-red ml-2 transition-colors "
                     >
                       <X size={20} />
                     </button>
@@ -157,7 +148,7 @@ const Dessert = () => {
                 </p>
                 <button
                   onClick={() => setShowConfirmation(true)}
-                  className="w-full bg-rose-500 hover:bg-rose-600 focus:bg-rose-600 text-white py-3 rounded-full transition-colors focus:outline-none"
+                  className="w-full bg-red hover:bg-rose-600 focus:bg-rose-600 text-white py-3 rounded-full transition-colors focus:outline-none"
                 >
                   Confirm Order
                 </button>

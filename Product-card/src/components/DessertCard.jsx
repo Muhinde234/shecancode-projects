@@ -3,7 +3,7 @@ import { Plus, Minus } from "lucide-react";
 import ActionButton from "./ActionButton";
 
 const DessertCard = ({ id, name, category, price, image, addToCart, cart = [], updateQuantity }) => {
-  const isInCart = cart.some(item => item.id === id);
+  const isInCart = cart.some(item => item.name === name);
 
   return (
     <div className="group">
@@ -20,16 +20,16 @@ const DessertCard = ({ id, name, category, price, image, addToCart, cart = [], u
           {isInCart ? (
             <div className="flex items-center gap-2 bg-white rounded-full px-4 py-2 shadow-lg">
               <button
-                onClick={() => updateQuantity(id, -1)}
+                onClick={() => updateQuantity(name, -1)}
                 className="p-1 hover:bg-gray-100 focus:bg-gray-100 rounded-full transition-colors"
               >
                 <Minus className="w-5 h-5" />
               </button>
               <span className="min-w-[24px] text-center">
-                {cart.find(item => item.id === id)?.quantity || 0}
+                {cart.find(item => item.name === name)?.quantity || 0}
               </span>
               <button
-                onClick={() => updateQuantity(id, 1)}
+                onClick={() => updateQuantity(name, 1)}
                 className="p-1 hover:bg-gray-100 focus:bg-gray-100 rounded-full transition-colors"
               >
                 <Plus className="w-5 h-5" />
