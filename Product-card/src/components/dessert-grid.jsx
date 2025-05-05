@@ -1,11 +1,15 @@
 import { useEffect, useState } from "react";
 import DessertCard from "./DessertCard";
 import cart_cake from "../assets/images/cart_cake.png";
+import { X } from "lucide-react";
 import ConfirmationModal from "./ConfirmationModel";
 
 const Dessert = () => {
   const [desserts, setDesserts] = useState([]);
-  const [cart, setCart] = useState([]);
+  const [cart, setCart] = useState(() => {
+    const savedCart = localStorage.getItem("dessertCart");
+    return savedCart ? JSON.parse(savedCart) : [];
+  });
   const [showConfirmation, setShowConfirmation] = useState(false);
   const [loading, setLoading] = useState(true);
 
@@ -16,7 +20,7 @@ const Dessert = () => {
         const json = await response.json();
         setDesserts(json);
       } catch (error) {
-        setError(error);
+        console.error("Error fetching data:", error);
       } finally {
         setLoading(false);
       }
@@ -24,51 +28,58 @@ const Dessert = () => {
     fetchData();
   }, []);
 
-
-
-
+  useEffect(() => {
+    localStorage.setItem("dessertCart", JSON.stringify(cart));
+  }, [cart]);
 
   const addToCart = (dessert) => {
-    setCart(prev => {
-      const existing = prev.find(item => item.name === dessert.name);
+    setCart((prev) => {
+      const existing = prev.find((item) => item.id === dessert.id);
       if (existing) {
-        return prev.map(item =>
-          item.id === dessert.name 
-            ? {...item, quantity: item.quantity + 1} 
+        return prev.map((item) =>
+          item.id === dessert.id
+            ? { ...item, quantity: item.quantity + 1 }
             : item
         );
       }
-      return [...prev, {...dessert, quantity: 1}];
+      return [...prev, { ...dessert, quantity: 1 }];
     });
   };
 
-  const removeFromCart = (name) => {
-    setCart(prev => prev.filter(item => item.name !== name));
+  const removeFromCart = (id) => {
+    setCart((prev) => prev.filter((item) => item.id !== id));
   };
 
-  const updateQuantity = (name, amount) => {
-    setCart(prev => prev.map(item => 
-      item.name === name
-        ? {...item, quantity: Math.max(1, item.quantity + amount)}
-        : item
-    ));
+  const updateQuantity = (id, amount) => {
+    setCart((prev) =>
+      prev.map((item) =>
+        item.id === id
+          ? { ...item, quantity: Math.max(1, item.quantity + amount) }
+          : item
+      )
+    );
   };
 
   const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+  const totalPrice = cart.reduce(
+    (sum, item) => sum + item.price * item.quantity,
+    0
+  );
 
   return (
     <main className="px-8 container mx-auto my-28">
       <h1 className="font-bold text-2xl mb-12">Desserts</h1>
-      
+
       <div className="flex flex-col lg:flex-row items-start gap-8">
-      
         <div className="w-full grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
           {desserts.map((dessert) => (
             <DessertCard
               key={dessert.id}
               {...dessert}
               image={dessert.image.desktop}
-              addToCart={() => addToCart(dessert)}
+              addToCart={addToCart}
+              cart={cart}
+              updateQuantity={updateQuantity}
             />
           ))}
         </div>
@@ -80,7 +91,7 @@ const Dessert = () => {
             </h2>
             <button
               onClick={() => setCart([])}
-              className="text-red hover:text-red text-sm border border-rose-500 py-3 px-2 rounded-full cursor-pointer"
+              className="text-rose-500 hover:text-rose-700 focus:text-rose-700 text-sm border border-rose-500 py-2 px-4 rounded-full transition-colors focus:outline-none"
             >
               Start New Order
             </button>
@@ -96,49 +107,68 @@ const Dessert = () => {
               <p className="text-sm">Your added items will appear here</p>
             </div>
           ) : (
-            <>
-              {cart.map(item => (
-                <div key={item.id} className="flex items-center justify-between mb-4 p-4 bg-white rounded-lg">
-                  <div>
+            <div className="space-y-4">
+              {cart.map((item) => (
+                <div
+                  key={item.id}
+                  className="flex items-center justify-between p-4 bg-white rounded-lg"
+                >
+                  <div className="flex-1">
                     <h3 className="font-semibold">{item.name}</h3>
-                    <p className="text-red">${item.price}</p>
+                    <div className="flex items-center gap-2 mt-1">
+                      <button
+                        onClick={() => updateQuantity(item.id, -1)}
+                        className="px-2 py-1 rounded-md bg-gray-200 hover:bg-gray-300 focus:bg-gray-300 transition-colors"
+                        disabled={item.quantity <= 1}
+                      >
+                        -
+                      </button>
+                      <span className="w-6 text-center">{item.quantity}</span>
+                      <button
+                        onClick={() => updateQuantity(item.id, 1)}
+                        className="px-2 py-1 rounded-md bg-gray-200 hover:bg-gray-300 focus:bg-gray-300 transition-colors"
+                      >
+                        +
+                      </button>
+                      <span className="ml-2">@ ${item.price.toFixed(2)}</span>
+                    </div>
                   </div>
                   <div className="flex items-center gap-2">
+                    <span className="font-semibold">
+                      ${(item.price * item.quantity).toFixed(2)}
+                    </span>
                     <button
-                      onClick={() => updateQuantity(item.name, -1)}
-                      className="px-2 py-1 rounded-md bg-gray-200 hover:bg-gray-300"
+                      onClick={() => removeFromCart(item.id)}
+                      className="text-rose-500 hover:text-rose-700 focus:text-rose-700 ml-2 transition-colors"
                     >
-                      -
-                    </button>
-                    <span>{item.quantity}</span>
-                    <button
-                      onClick={() => updateQuantity(item.name, 1)}
-                      className="px-2 py-1 rounded-md bg-gray-200 hover:bg-gray-300"
-                    >
-                      +
-                    </button>
-                    <button
-                      onClick={() => removeFromCart(item.name)}
-                      className="ml-2 text-red-500 hover:text-red"
-                    >
-                      ×
+                      <X size={20} />
                     </button>
                   </div>
                 </div>
               ))}
-              <button
-                onClick={() => setShowConfirmation(true)}
-                className="w-full mt-6 bg-red hover:bg-red text-white py-3 rounded-lg transition-colors"
-              >
-                Confirm Order
-              </button>
-            </>
+
+              <div className="pt-4 border-t border-gray-200">
+                <div className="flex justify-between items-center mb-4">
+                  <span className="font-bold">Order Total</span>
+                  <span className="font-bold">${totalPrice.toFixed(2)}</span>
+                </div>
+                <p className="text-sm text-gray-500 mb-4">
+                  This is a carbon-neutral delivery
+                </p>
+                <button
+                  onClick={() => setShowConfirmation(true)}
+                  className="w-full bg-rose-500 hover:bg-rose-600 focus:bg-rose-600 text-white py-3 rounded-full transition-colors focus:outline-none"
+                >
+                  Confirm Order
+                </button>
+              </div>
+            </div>
           )}
         </div>
       </div>
 
       {showConfirmation && (
-        <ConfirmationModal 
+        <ConfirmationModal
           totalItems={totalItems}
           onClose={() => setShowConfirmation(false)}
           onConfirm={() => {

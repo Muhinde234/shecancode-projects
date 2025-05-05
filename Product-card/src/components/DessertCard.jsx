@@ -1,19 +1,47 @@
+
+import { Plus, Minus } from "lucide-react";
 import ActionButton from "./ActionButton";
-const DessertCard = ({ id, name, category, price, image,addToCart }) => {
+
+const DessertCard = ({ id, name, category, price, image, addToCart, cart = [], updateQuantity }) => {
+  const isInCart = cart.some(item => item.id === id);
+
   return (
     <div className="group">
-    
       <div className="relative">
         <div id={id} className="overflow-hidden h-[240px] rounded-lg">
           <img
             src={image}
-            className="object-cover h-full w-full transform hover:scale-[1.1] duration-400"
+            className="object-cover h-full w-full transform group-hover:scale-[1.1] transition-transform duration-400"
             alt={`${name} Image`}
           />
         </div>
-        <ActionButton className="absolute left-1/2 -bottom-6 transform -translate-x-1/2 cursor-pointer"
-             onClick={addToCart}
-        />
+
+        <div className="absolute left-1/2 -bottom-6 transform -translate-x-1/2">
+          {isInCart ? (
+            <div className="flex items-center gap-2 bg-white rounded-full px-4 py-2 shadow-lg">
+              <button
+                onClick={() => updateQuantity(id, -1)}
+                className="p-1 hover:bg-gray-100 focus:bg-gray-100 rounded-full transition-colors"
+              >
+                <Minus className="w-5 h-5" />
+              </button>
+              <span className="min-w-[24px] text-center">
+                {cart.find(item => item.id === id)?.quantity || 0}
+              </span>
+              <button
+                onClick={() => updateQuantity(id, 1)}
+                className="p-1 hover:bg-gray-100 focus:bg-gray-100 rounded-full transition-colors"
+              >
+                <Plus className="w-5 h-5" />
+              </button>
+            </div>
+          ) : (
+            <ActionButton 
+              onClick={() => addToCart({ id, name, price, category, image })}
+              className="cursor-pointer"
+            />
+          )}
+        </div>
       </div>
       <div className="mt-10">
         <p className="text-rose-500 text-sm">{category}</p>
