@@ -89,7 +89,12 @@ const Dessert = () => {
             <h2 className="text-red font-bold text-xl">
               Your Cart ({totalItems})
             </h2>
-           
+            <button
+              onClick={() => setCart([])}
+              className="text-rose-500 hover:text-rose-700 focus:text-rose-700 text-sm border border-rose-500 py-2 px-4 rounded-full transition-colors focus:outline-none"
+            >
+              Start New Order
+            </button>
           </div>
 
           {cart.length === 0 ? (
@@ -130,7 +135,7 @@ const Dessert = () => {
                     </span>
                     <button
                       onClick={() => removeFromCart(item.name)}
-                      className="text-red border-2 border-red rounded-full hover:text-red focus:text-red ml-2 transition-colors "
+                      className="text-red hover:text-red focus:text-red ml-2 transition-colors "
                     >
                       <X size={20} />
                     </button>
