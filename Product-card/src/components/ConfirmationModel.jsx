@@ -1,6 +1,34 @@
 import { CircleCheck } from "lucide-react";
+import { useEffect, useRef } from "react";
 
-const ConfirmationModal = ({ cartItems = [], total = 0, onConfirm }) => {
+const ConfirmationModal = ({ cartItems = [], total = 0, onConfirm,onClose }) => {
+
+  const modalRef = useRef(null)
+  
+
+  useEffect(() => {
+    const handleKeyDown = (event) => {
+      if (event.key === "Escape") {
+        onClose();
+      }
+    };
+
+    document.addEventListener("keydown", handleKeyDown);
+    return () => document.removeEventListener("keydown", handleKeyDown);
+  }, [onClose]);
+
+  
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (modalRef.current && !modalRef.current.contains(event.target)) {
+        onClose();
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, [onClose]);
+
   return (
     <div className="fixed inset-0  bg-black/70 backdrop-blur-sm flex items-center justify-center p-4  max-h-screen overflow-hidden">
 

@@ -158,6 +158,7 @@ const Dessert = () => {
       setCart([]);
       setShowConfirmation(false);
     }}
+    onClose={() => setShowConfirmation(false)}
   />
 )}
     </main>
