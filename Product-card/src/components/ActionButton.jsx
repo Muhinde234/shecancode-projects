@@ -1,4 +1,4 @@
-import image from "../assets/Images/image.png";
+import image from "../assets/Images/image1.png";
 
 export default function ActionButton({className,onClick}) {
   return (
