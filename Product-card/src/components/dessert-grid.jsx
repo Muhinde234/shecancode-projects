@@ -137,7 +137,7 @@ const Dessert = () => {
             ${cart.reduce((total, item) => total + (item.price * item.quantity), 0).toFixed(2)}
           </span>
         </div>
-        <div className="flex gap-1 mt-10 mb-4">
+        <div className="flex gap-1 mt-10 mb-4pm r">
           <img src={image} alt="carbon-tree"/>
         <p className="text-sm text-gray-500">
           This is a carbon-neutral delivery

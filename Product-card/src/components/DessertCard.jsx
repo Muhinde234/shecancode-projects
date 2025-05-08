@@ -22,8 +22,8 @@ const DessertCard = ({ id, name, category, price, image, addToCart, cart = [], u
           {isInCart ? (
             <div className="flex items-center gap-2 bg-red rounded-full px-4 py-2 shadow-lg">
               <button
-                onClick={() => updateItem(name, -1)}
-                className="p-1 border-2 border-gray-100 rounded-full transition-colors"
+                onClick={() => updateQuantity(name, -1)}
+                className="p-1 border-2 border-gray-100 rounded-full transition-colors cursor-pointer"
               >
                 <Minus className="w-5 h-5 text-white rounded-full" />
               </button>
@@ -31,8 +31,8 @@ const DessertCard = ({ id, name, category, price, image, addToCart, cart = [], u
                 {cart.find(item => item.name === name)?.quantity || 0}
               </span>
               <button
-                onClick={() => updateItem(name, 1)}
-                className="p-1 border-2 border-gray-100 rounded-full transition-colors"
+                onClick={() => updateQuantity(name, 1)}
+                className="p-1 border-2 border-gray-100 rounded-full transition-colors cursor-pointer"
               >
                 <Plus className="w-5 h-5 text-white rounded-full" />
               </button>
