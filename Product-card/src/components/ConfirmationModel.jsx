@@ -1,8 +1,10 @@
 import { CircleCheck } from "lucide-react";
 
-const ConfirmationModal = ({ cartItems = [], total = 0, onClose, onConfirm }) => {
+const ConfirmationModal = ({ cartItems = [], total = 0, onConfirm }) => {
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
+    <div className="fixed inset-0  bg-black/70 backdrop-blur-sm flex items-center justify-center p-4  max-h-screen overflow-hidden">
+
+
       <div className="bg-white rounded-lg p-6 md:p-8 max-w-md w-full">
         <div className="flex items-center mb-4">
      

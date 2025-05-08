@@ -90,12 +90,7 @@ const Dessert = () => {
     <h2 className="text-red font-bold text-xl">
       Your Cart ({totalItems})
     </h2>
-    <button
-      onClick={() => setCart([])}
-      className="text-rose-500 hover:text-rose-700 focus:text-rose-700 text-sm border border-rose-500 py-2 px-4 rounded-full transition-colors focus:outline-none"
-    >
-      Start New Order
-    </button>
+    
   </div>
 
   {cart.length === 0 ? (
@@ -124,7 +119,7 @@ const Dessert = () => {
               onClick={() => removeFromCart(item.name)}
               className="text-red hover:text-red focus:text-red ml-2 transition-colors"
             >
-              <X size={20} />
+              <X size={20} className=" w-7 h-7 rounded-full border-1 border-red  " />
             </button>
           </div>
         </div>
@@ -133,11 +128,11 @@ const Dessert = () => {
       <div className="pt-4 border-t border-gray-200">
         <div className="flex justify-between items-center font-bold text-lg">
           <span>Order Total</span>
-          <span>
+          <span className="font-bold">
             ${cart.reduce((total, item) => total + (item.price * item.quantity), 0).toFixed(2)}
           </span>
         </div>
-        <div className="flex gap-1 mt-10 mb-4pm r">
+        <div className="flex gap-1 mt-10 mb-4">
           <img src={image} alt="carbon-tree"/>
         <p className="text-sm text-gray-500">
           This is a carbon-neutral delivery
@@ -145,7 +140,7 @@ const Dessert = () => {
         </div>
         <button
                   onClick={() => setShowConfirmation(true)}
-                  className="w-full bg-red  focus:bg-rose-600 text-white py-3 rounded-full transition-colors focus:outline-none"
+                  className="w-full bg-red  focus:bg-red text-white py-3 rounded-full transition-colors focus:outline-none"
                 >
                   Confirm Order
                 </button>
