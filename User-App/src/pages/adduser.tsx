@@ -1,6 +1,7 @@
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { UserForm } from '../components/UserForm';
-import { useAppContext } from '../context/AppContext';
+import { useAppContext } from '../context/appcontext';
+import type { NewUser } from '../types/user';
 
 export const AddUser = () => {
   const { dispatch } = useAppContext();
@@ -30,6 +31,7 @@ export const AddUser = () => {
       <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 max-w-2xl mx-auto">
         <UserForm onSubmit={handleSubmit} />
       </div>
+      
     </div>
   );
 };

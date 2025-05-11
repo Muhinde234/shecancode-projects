@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { useAppContext } from '../context/appcontext';
-import { User } from '../types/user';
+import type { User } from '../types/user';
 
 export const UserDetails = () => {
   const { id } = useParams<{ id: string }>();

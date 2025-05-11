@@ -1,6 +1,6 @@
 
 import { Link } from 'react-router-dom';
-import {User}  from '../types/user';
+import type{User}  from '../types/user';
 
 export const UserCard = ({ user }: { user: User }) => {
   return (

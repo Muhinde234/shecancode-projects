@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { NewUser } from '../types/user';
+import type { NewUser } from '../types/user';
 
 
 export const useUserForm = (initialState: NewUser) => {
@@ -14,14 +14,14 @@ export const useUserForm = (initialState: NewUser) => {
       newErrors.email = 'Invalid email format';
     }
     if (formData.age && formData.age < 18) {
-       newErrors.age = 'Must be at least 18 years old';
+        alert( 'Must be at least 18 years old');
     }
 
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setFormData(prev => ({
       ...prev,

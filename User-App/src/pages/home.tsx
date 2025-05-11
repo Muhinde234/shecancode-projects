@@ -1,8 +1,9 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { UserCard } from '../components/UserCard';
-import { useAppContext } from '../context/AppContext';
-import { User } from '../types/user';
+import { UserCard } from '../components/usercard';
+import { useAppContext } from '../context/appcontext';
+import type { User } from '../types/user';
+import {  MoonIcon, Sun } from 'lucide-react';
 
 export const Home = () => {
   const { state, dispatch } = useAppContext();
@@ -18,7 +19,7 @@ export const Home = () => {
         const data: User[] = await response.json();
         dispatch({ type: 'SET_USERS', payload: data });
       } catch (err) {
-        setError(err instanceof Error ? err.message : 'Unknown error');
+        setError('can not fetch users');
       } finally {
         setLoading(false);
       }
@@ -53,11 +54,12 @@ export const Home = () => {
             placeholder="Search users..."
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
-            className="p-2 border border-gray-300 rounded"
+            className="p-2 border border-gray-300 rounded
+            placeholder:text-lg text-blue-500"
           />
           <Link 
             to="/add-user" 
-            className="bg-green-500 hover:bg-green-600 text-white py-2 px-4 rounded transition-colors"
+            className="bg-purple-500 hover:bg-purple-600 text-white py-2 px-4 rounded transition-colors"
           >
             Add New User
           </Link>
@@ -65,7 +67,7 @@ export const Home = () => {
             onClick={() => dispatch({ type: 'TOGGLE_THEME' })}
             className="bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-white py-2 px-4 rounded transition-colors"
           >
-            {state.theme === 'light' ? '🌙 Dark' : '☀️ Light'}
+            {state.theme === 'light' ?<Sun/> : <MoonIcon/>}
           </button>
         </div>
       </div>

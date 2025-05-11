@@ -13,11 +13,12 @@ export interface User {
   };
 }
 
-export enum UserRole {
+ enum  UserRole {
   Admin = 'Admin',
   Editor = 'Editor',
   Viewer = 'Viewer'
 }
+export {UserRole}
 
 export type NewUser = Omit<User, 'id'> & {
   age: number;

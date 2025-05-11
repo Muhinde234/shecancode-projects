@@ -1,4 +1,6 @@
-import { NewUser, UserRole } from '../types/user';
+import type { NewUser  } from '../types/user';
+import  {  UserRole } from '../types/user';
+
 import { useUserForm } from '../hooks/useUserForm';
 
 const initialFormData: NewUser = {
