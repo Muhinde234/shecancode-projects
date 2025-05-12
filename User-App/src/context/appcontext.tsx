@@ -1,6 +1,5 @@
 import { createContext, useContext, useReducer, ReactNode } from 'react';
-import type {User}  from '../types/user';
-
+import type { User } from '../types/user';
 
 type AppState = {
   users: User[];
@@ -13,10 +12,43 @@ type AppAction =
   | { type: 'ADD_USER'; payload: User }
   | { type: 'TOGGLE_THEME' };
 
-const initialState: AppState = {
-  users: [],
-  addedUsers: [],
-  theme: 'light'
+const AppContext = createContext<{
+  state: AppState;
+  dispatch: React.Dispatch<AppAction>;
+  toggleTheme: () => void;
+}>({
+  state: {
+    users: [],
+    addedUsers: [],
+    theme: 'light'
+  },
+  dispatch: () => null,
+  
+
+  toggleTheme: () => {}
+});
+
+export const AppProvider = ({ 
+  children, 
+  theme: initialTheme,
+  toggleTheme 
+}: { 
+  children: ReactNode;
+  theme: 'light' | 'dark';
+  toggleTheme: () => void;
+}) => {
+  const [state, dispatch] = useReducer(reducer, {
+    users: [],
+    addedUsers: [],
+    theme: initialTheme
+  });
+  
+
+  return (
+    <AppContext.Provider value={{ state, dispatch, toggleTheme }}>
+      {children}
+    </AppContext.Provider>
+  );
 };
 
 const reducer = (state: AppState, action: AppAction): AppState => {
@@ -30,24 +62,6 @@ const reducer = (state: AppState, action: AppAction): AppState => {
     default:
       return state;
   }
-};
-
-const AppContext = createContext<{
-  state: AppState;
-  dispatch: React.Dispatch<AppAction>;
-}>({
-  state: initialState,
-  dispatch: () => null
-});
-
-export const AppProvider = ({ children }: { children: ReactNode }) => {
-  const [state, dispatch] = useReducer(reducer, initialState);
-
-  return (
-    <AppContext.Provider value={{ state, dispatch }}>
-      {children}
-    </AppContext.Provider>
-  );
 };
 
 export const useAppContext = () => useContext(AppContext);
