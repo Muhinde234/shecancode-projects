@@ -10,7 +10,7 @@ export const AddUser = () => {
   const handleSubmit = (userData: NewUser) => {
     const newUser = {
       ...userData,
-      id: Math.floor(Math.random() * 10000) // Simple ID generation
+      id: Math.floor(Math.random() * 10000) 
     };
     dispatch({ type: 'ADD_USER', payload: newUser });
     navigate('/');

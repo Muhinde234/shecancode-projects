@@ -5,13 +5,13 @@ import { ChevronLeft, ChevronRight } from 'lucide-react';
 export default function QuoteCard() {
     const [quoteIndex, setQuoteIndex] = useState(0);
     
-    // Function to get a random quote
+   
     const getRandomQuote = () => {
       const randomIndex = Math.floor(Math.random() * quotes.length);
       setQuoteIndex(randomIndex);
     };
     
-    // Auto-rotate quotes every 5 seconds
+   
     useEffect(() => {
       const interval = setInterval(() => {
         getRandomQuote();

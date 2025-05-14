@@ -20,8 +20,4 @@ export interface User {
 }
 export {UserRole}
 
-export type NewUser = Omit<User, 'id'> & {
-  age: number;
-  role?: UserRole;
-};
-
+w
