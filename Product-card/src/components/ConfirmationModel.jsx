@@ -9,7 +9,7 @@ const ConfirmationModal = ({ cartItems = [], total = 0, onConfirm,onClose }) => 
   useEffect(() => {
     const handleKeyDown = (event) => {
       if (event.key === "Escape") {
-        onClose();q
+        onClose();
       }
     };
 
