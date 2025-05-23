@@ -4,7 +4,7 @@ import "../styles/globals.css";
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
-    <ClerkProvider>
+    <ClerkProvider  publishableKey={process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY}>
       <div className="min-h-screen bg-[#F8F5F2]">
         <SignedIn>
           <header className="bg-[#213D34] text-white py-4 px-6">
