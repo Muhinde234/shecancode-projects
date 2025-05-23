@@ -59,7 +59,7 @@ export default function App({ initialRecipes }: HomeProps) {
               <h1 className="text-4xl md:text-5xl font-serif font-bold mb-2">Chef's Master Recipes</h1>
               <p className="text-xl md:text-2xl font-serif opacity-90">Discover & share culinary creations</p>
             </div>
-            <UserButton afterSignOutUrl="/" />
+         
           </div>
         </div>
 
