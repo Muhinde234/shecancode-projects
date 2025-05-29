@@ -2,7 +2,7 @@
 'use client';
 
 import { useRouter } from 'next/navigation';
-import { useAuth } from '@/lib/auth';
+import { useAuth } from '../../lib/auth';
 import { useEffect } from 'react';
 
 interface ProtectedLayoutProps {

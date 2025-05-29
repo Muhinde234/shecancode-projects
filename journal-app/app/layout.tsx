@@ -1,11 +1,11 @@
 // app/layout.tsx
 import type { Metadata } from 'next';
-import { AuthProvider } from '@/lib/auth';
+import { AuthProvider } from '../lib/auth';
 import './globals.css';
 
 export const metadata: Metadata = {
-  title: 'DeepSeek Journal',
-  description: 'Your personal AI-powered journal',
+  title: 'Dositha Journal',
+  description: ' personal journal',
 };
 
 export default function RootLayout({
