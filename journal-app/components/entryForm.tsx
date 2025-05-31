@@ -1,6 +1,6 @@
 // components/EntryForm.tsx
 import { useState, FormEvent } from 'react';
-import { EntryFormProps } from '@/types';
+import { EntryFormProps } from '../types/index';
 
 export default function EntryForm({ onSubmit }: EntryFormProps) {
   const [title, setTitle] = useState<string>('');

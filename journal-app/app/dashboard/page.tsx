@@ -1,96 +1,50 @@
-// app/(protected)/dashboard/page.tsx
-'use client';
-
-import { useState, useEffect } from 'react';
-import { useAuth } from '../../lib/auth';
-import EntryForm from '../../components/entryForm';
-import EntryList from '../../components/entryList';
-import InsightsPanel from '../../components/insightsPanel';
-import { JournalEntry } from '../../types';
-import styles from '@/styles/Dashboard.module.css';
+"use client";
+import { useEffect, useState } from "react";
+import { onAuthStateChanged, signOut } from "firebase/auth";
+import { auth } from "../../lib/entryService";
+import { useRouter } from "next/navigation";
+import JournalEntryCard from "@/components/JournalEntryCard";
+import EntryForm from "@/components/EntryForm";
 
 export default function Dashboard() {
-  const { user, signOut } = useAuth();
-  const [entries, setEntries] = useState<JournalEntry[]>([]);
-  const [loading, setLoading] = useState<boolean>(true);
-  const [activeTab, setActiveTab] = useState<'journal' | 'insights'>('journal');
+  const router = useRouter();
+  const [user, setUser] = useState(null);
+  const [entries, setEntries] = useState([]);
 
   useEffect(() => {
-    if (user) fetchEntries();
-  }, [user]);
-
-  const fetchEntries = async (): Promise<void> => {
-    try {
-      const token = await user?.getIdToken();
-      if (!token) return;
-      
-      const res = await fetch('/api/entries', {
-        headers: { Authorization: `Bearer ${token}` }
-      });
-      
-      if (!res.ok) throw new Error('Failed to fetch entries');
-      
-      const data: JournalEntry[] = await res.json();
-      setEntries(data);
-    } catch (error) {
-      console.error('Error fetching entries:', error);
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  const addEntry = async (title: string, content: string): Promise<boolean> => {
-    try {
-      const token = await user?.getIdToken();
-      if (!token) return false;
-      
-      const res = await fetch('/api/entries', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Bearer ${token}`,
-        },
-        body: JSON.stringify({ title, content }),
-      });
-      
-      if (res.ok) {
-        fetchEntries();
-        return true;
+    const unsubscribe = onAuthStateChanged(auth, async (firebaseUser) => {
+      if (!firebaseUser) {
+        router.push("/login");
+      } else {
+        setUser(firebaseUser);
+        const res = await fetch("/api/entries");
+        const data = await res.json();
+        setEntries(data.entries);
       }
-      return false;
-    } catch (error) {
-      console.error('Error adding entry:', error);
-      return false;
-    }
-  };
+    });
 
-  const deleteEntry = async (id: string): Promise<void> => {
-    try {
-      const token = await user?.getIdToken();
-      if (!token) return;
-      
-      const res = await fetch(`/api/entries/${id}`, {
-        method: 'DELETE',
-        headers: { Authorization: `Bearer ${token}` },
-      });
-      
-      if (res.ok) {
-        setEntries(entries.filter(entry => entry.id !== id));
-      }
-    } catch (error) {
-      console.error('Error deleting entry:', error);
-    }
-  };
+    return () => unsubscribe();
+  }, [router]);
 
-  if (loading) {
-    return <div className={styles.loading}>Loading your journal...</div>;
-  }
+  const handleDelete = async (id: string) => {
+    await fetch(`/api/entries/${id}`, { method: "DELETE" });
+    setEntries(entries.filter((e) => e.id !== id));
+  };
 
   return (
-    <div className={styles.container}>
-      {/* Dashboard UI implementation */}
-      <EntryForm onSubmit={addEntry} />
-      <EntryList entries={entries} onDelete={deleteEntry} />
+    <div className="p-8">
+      <div className="flex justify-between">
+        <h1 className="text-2xl font-bold mb-4">My Journal</h1>
+        <button onClick={() => signOut(auth)} className="text-sm underline">Sign Out</button>
+      </div>
+
+      <EntryForm onNewEntry={(newEntry) => setEntries([newEntry, ...entries])} />
+
+      <div className="grid gap-4 mt-4">
+        {entries.map((entry) => (
+          <JournalEntryCard key={entry.id} entry={entry} onDelete={handleDelete} />
+        ))}
+      </div>
     </div>
   );
 }

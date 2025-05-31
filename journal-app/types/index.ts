@@ -1,4 +1,3 @@
-
 export interface JournalEntry {
   id: string;
   title: string;
@@ -16,16 +15,16 @@ export interface User {
 export interface AuthContextType {
   user: User | null;
   loading: boolean;
-  signInWithGoogle: () => Promise<void>;
+ signInWithEmailPassword: (email: string, password: string) => Promise<void>;
   signOut: () => Promise<void>;
 }
 
+// Keep only ONE EntryFormProps interface like this if EntryForm only uses onSubmit:
 export interface EntryFormProps {
-  entries: JournalEntry[];
-  onDelete: (id: string) => Promise<void>;
   onSubmit: (title: string, content: string) => Promise<boolean>;
 }
 
+// EntryListProps is fine
 export interface EntryListProps {
   entries: JournalEntry[];
   onDelete: (id: string) => Promise<void>;

@@ -1,10 +1,15 @@
-// lib/auth.tsx
 'use client';
 
 import { createContext, useContext, useEffect, useState, ReactNode } from 'react';
 import { auth } from './firebase';
-import { User } from 'firebase/auth';
-import { AuthContextType } from '@/types';
+import {
+  User,
+  signInWithPopup,
+  GoogleAuthProvider,
+  onAuthStateChanged,
+  signOut as firebaseSignOut
+} from 'firebase/auth';
+import { AuthContextType } from '../types/index';
 
 const AuthContext = createContext<AuthContextType | null>(null);
 
@@ -12,16 +17,19 @@ interface AuthProviderProps {
   children: ReactNode;
 }
 
+// ✅ Create Google Auth Provider instance
+const googleProvider = new GoogleAuthProvider();
+
 export function AuthProvider({ children }: AuthProviderProps) {
   const [user, setUser] = useState<User | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
-    const unsubscribe = auth.onAuthStateChanged((authUser) => {
+    const unsubscribe = onAuthStateChanged(auth, (authUser) => {
       setUser(authUser);
       setLoading(false);
     });
-    return unsubscribe;
+    return () => unsubscribe();
   }, []);
 
   const signInWithGoogle = async (): Promise<void> => {
@@ -33,7 +41,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
   };
 
   const signOut = async (): Promise<void> => {
-    await auth.signOut();
+    await firebaseSignOut(auth);
   };
 
   const value: AuthContextType = {

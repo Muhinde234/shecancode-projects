@@ -1,4 +1,4 @@
-// app/layout.tsx
+
 import type { Metadata } from 'next';
 import { AuthProvider } from '../lib/auth';
 import './globals.css';
@@ -15,8 +15,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>
+      <body >
         <AuthProvider>{children}</AuthProvider>
+        
       </body>
     </html>
   );
