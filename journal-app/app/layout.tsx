@@ -1,23 +1,23 @@
+import type { Metadata } from "next";
+import { Inter } from "next/font/google";
+import "./globals.css";
 
-import type { Metadata } from 'next';
-import { AuthProvider } from '../lib/auth';
-import './globals.css';
+const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: 'Dositha Journal',
-  description: ' personal journal',
+  title: "Personal Journal",
+  description: "A private journal app for your thoughts and reflections",
 };
 
 export default function RootLayout({
   children,
-}: {
-  children: React.ReactNode
-}) {
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
   return (
     <html lang="en">
-      <body >
-        <AuthProvider>{children}</AuthProvider>
-        
+      <body className={inter.className}>
+        {children}
       </body>
     </html>
   );

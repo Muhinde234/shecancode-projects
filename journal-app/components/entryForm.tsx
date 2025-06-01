@@ -1,56 +1,104 @@
-// components/EntryForm.tsx
-import { useState, FormEvent } from 'react';
-import { EntryFormProps } from '../types/index';
+"use client";
 
-export default function EntryForm({ onSubmit }: EntryFormProps) {
-  const [title, setTitle] = useState<string>('');
-  const [content, setContent] = useState<string>('');
-  const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
+import { useState } from "react";
+import { toast } from "react-hot-toast";
 
-  const handleSubmit = async (e: FormEvent) => {
+import { addEntry } from "@/lib/firebase/firestore";
+import { getCurrentUser } from "../lib/firebase/auth";
+import Button from "./ui/button";
+
+export default function EntryForm({ onEntryAdded }: { onEntryAdded: () => void }) {
+  const [title, setTitle] = useState("");
+  const [content, setContent] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!title.trim() || !content.trim()) return;
     
-    setIsSubmitting(true);
-    const success = await onSubmit(title, content);
-    
-    if (success) {
-      setTitle('');
-      setContent('');
+    if (!title.trim() || !content.trim()) {
+      toast.error("Title and content are required");
+      return;
     }
     
-    setIsSubmitting(false);
+    setIsSubmitting(true);
+    
+    try {
+      const user = getCurrentUser();
+      if (!user) {
+        toast.error("You must be logged in to add an entry");
+        return;
+      }
+      
+      await addEntry({
+        title,
+        content,
+        createdAt: new Date(),
+        userId: user.uid
+      });
+      
+      toast.success("Entry added successfully");
+      setTitle("");
+      setContent("");
+      onEntryAdded();
+    } catch (error) {
+      toast.error("Failed to add entry");
+      console.error(error);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
-
+  
   return (
-    <div className="entry-form">
-      <h2>New Journal Entry</h2>
+    <div className="bg-white rounded-lg shadow-md p-6 mb-8">
+      <h2 className="text-xl font-semibold mb-4 text-gray-800">New Journal Entry</h2>
       <form onSubmit={handleSubmit}>
-        <div className="form-group">
+        <div className="mb-4">
+          <label htmlFor="title" className="block text-sm font-medium text-gray-700 mb-1">
+            Title
+          </label>
           <input
             type="text"
+            id="title"
             value={title}
             onChange={(e) => setTitle(e.target.value)}
-            placeholder="Entry title"
-            required
+            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+            placeholder="Give your entry a title"
           />
         </div>
-        <div className="form-group">
+        
+        
+        <div className="mb-6">
+          <label htmlFor="content" className="block text-sm font-medium text-gray-700 mb-1">
+            Content
+          </label>
           <textarea
+            id="content"
             value={content}
             onChange={(e) => setContent(e.target.value)}
-            placeholder="What's on your mind today?"
-            rows={5}
-            required
+            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 min-h-[150px]"
+            placeholder="Write your thoughts here..."
           />
         </div>
-        <button 
-          type="submit" 
-          disabled={isSubmitting}
-          className="submit-button"
-        >
-          {isSubmitting ? 'Saving...' : 'Save Entry'}
-        </button>
+        
+        <div className="flex justify-end space-x-3">
+          <Button
+            type="button"
+            onClick={() => {
+              setTitle("");
+              setContent("");
+            }}
+            className="px-4 py-2 text-gray-600 bg-gray-100 rounded-md hover:bg-gray-200 transition-colors"
+          >
+            Clear
+          </Button>
+          <Button
+            type="submit"
+            disabled={isSubmitting}
+            className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors disabled:opacity-50"
+          >
+            {isSubmitting ? "Saving..." : "Save Entry"}
+          </Button>
+        </div>
       </form>
     </div>
   );
